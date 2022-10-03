@@ -1,7 +1,9 @@
 package happy.wedding.domain;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -21,7 +23,6 @@ public class Board {
 
     private String groom;   // 신랑
 
-    @Column(name="create_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate;
+    @Embedded
+    private EntityInfo entityInfo;
 }

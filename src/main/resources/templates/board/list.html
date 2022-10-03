@@ -1,0 +1,42 @@
+<!--만들어진 게시판 화면 : 내 축하 메세지 리스트 화면-->
+<!--
+신랑/신부 축하해주세요! 장식
+축하메세지들
+축하메세지 작성하기 버튼
+저장하기 버튼 -> 게시판 주인만 가능하게-> 그럼 비밀번호 있어야겠네??????
+-->
+
+<!DOCTYPE html>
+<html th:replace="~{/layout/base_layout :: layout(~{::title}, ~{::section})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<head>
+    <title>축하해</title>
+</head>
+
+
+<body>
+<section>
+    <div id="board-list-wrap">
+
+        <div class="py-5 text-center">
+            <h2>게시판 리스트</h2>
+        </div>
+        <ul>
+            <li th:each="list : ${contents}" >
+                <p th:text="${list.listIcon}">listIcon</p>
+    <!--            <p th:text="${list.name}">name</p>-->
+                <a th:href="@{/contents/view/{id}(id=${list.id})}" th:text="${list.name}"> 상세보기 </a>
+            </li>
+        </ul>
+
+        <a th:href="@{/contents/{boardId}(boardId=${boardId})}"> 축하하기 </a>
+        <a href="javascript:common.downloadImage('board-list-wrap')">이미지로 다운로드</a>
+
+
+
+    </div> <!-- /container -->
+</section>
+</body>
+</html>

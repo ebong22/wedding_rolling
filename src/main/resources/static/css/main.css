@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .form-input{
+    @apply
+    bg-transparent
+    border-b
+    border-neutral-500
+    ;
+  }
+
+  .form-label {
+    @apply
+    block
+    ;
+  }
+
+  .contents-wrap{
+    @apply
+    content-center
+    ;
+  }
+
+  .footer-wrap{
+    @apply
+    fixed
+    flex-1
+    bottom-2
+    text-sm
+    text-slate-400
+    ;
+  }
+}

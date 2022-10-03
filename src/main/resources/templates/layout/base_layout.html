@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html th:fragment="layout (title, content)" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/css/tailwind.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title th:replace="${title}">레이아웃 타이틀</title>
+</head>
+<body>
+<div class="mx-auto flex w-full h-screen px-10 bg-slate-300 flex-col ">
+  <div class="flex-1">
+    <div th:replace="${content}" >
+    </div>
+  </div>
+  <footer class="footer-wrap">
+    Copyright 2022. E_Bong All rights reserved.
+  </footer>
+</div>
+<script type="text/javascript" src="/js/library/html2canvas.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+</body>
+</html>

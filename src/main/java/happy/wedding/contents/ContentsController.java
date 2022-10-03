@@ -1,15 +1,70 @@
 package happy.wedding.contents;
 
+import happy.wedding.board.BoardService;
+import happy.wedding.domain.Contents;
+import happy.wedding.domain.EntityInfo;
+import happy.wedding.domain.ListIcon;
+import happy.wedding.dto.ContentsForm;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@Slf4j
+@RequiredArgsConstructor
+@RequestMapping("contents")
 public class ContentsController {
 
-    // GET view - 게시글 상세보기
+    private final ContentsService contentsService;
 
-    // GET writeView - 게시글 작성(form)
+    private final BoardService boardService;
 
-    // POST saveContents - redirect view - 게시글 submit
+    /**
+     * 게시글 상세보기
+     * @param id
+     * @param model
+     * @return
+     */
+    @GetMapping("/view/{id}")
+    public String view(@PathVariable Long id, Model model){
+        model.addAttribute("contents", contentsService.getContents(id));
+        return "contents/view";
+    }
+
+    /**
+     * 게시글 작성 form
+     * @return
+     */
+    @GetMapping("{boardId}")
+    public String contentsForm(Model model){
+        model.addAttribute("contentsForm", new ContentsForm());
+        model.addAttribute("listIcon", ListIcon.values());
+        return "contents/form";
+    }
+
+    /**
+     * 게시글 저장
+     * @param form
+     * @return
+     */
+    @PostMapping("{boardId}")
+    public String saveContents(@ModelAttribute ContentsForm form, @PathVariable Long boardId){
+        Contents contents = makeContents(form, boardId);
+        Long contentsId = contentsService.save(contents);
+        return "redirect:/contents/view/" + contentsId; //view/{id}로 Redirect or contents/view로
+    }
+
+    private Contents makeContents(ContentsForm form, Long boardId) {
+        Contents contents = new Contents();
+        contents.setName(form.getName());
+        contents.setContents(form.getContents());
+        contents.setListIcon(form.getListIcon());
+        contents.setBoard(boardService.findById(boardId));
+        contents.setEntityInfo(new EntityInfo());
+        return contents;
+    }
 
 
 }

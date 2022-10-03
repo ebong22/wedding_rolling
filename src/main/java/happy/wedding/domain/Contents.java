@@ -1,7 +1,9 @@
 package happy.wedding.domain;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,7 +16,7 @@ public class Contents {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="board_id")
     private Board board;
 
@@ -22,7 +24,9 @@ public class Contents {
 
     private String contents;
 
-    @Column(name="create_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createDate;
+    @Enumerated(EnumType.STRING)
+    private ListIcon listIcon;
+
+    @Embedded
+    private EntityInfo entityInfo;
 }

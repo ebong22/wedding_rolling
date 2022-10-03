@@ -1,0 +1,30 @@
+<!--게시글 상세화면 ( 축하메세지 조회 화면 )-->
+
+<!-- 게시글 작성 화면 -->
+
+<!DOCTYPE html>
+<html th:replace="~{/layout/base_layout :: layout(~{::title}, ~{::section})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<head>
+    <title>축하해</title>
+</head>
+
+
+<body>
+<section>
+    <div>
+
+        <div class="py-5 text-center">
+            <h2>게시판 상세</h2>
+        </div>
+        <div th:text="${contents.listIcon}"></div>
+        <div th:text="${contents.name}"></div>
+        <div th:text="${contents.contents}"></div>
+
+        <a th:href="@{/view/{id}(id=${contents.board.id})}"> 목록 </a>
+    </div> <!-- /container -->
+</section>
+</body>
+</html>
