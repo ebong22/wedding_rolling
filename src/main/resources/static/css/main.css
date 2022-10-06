@@ -1,35 +1,109 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
+@import url("https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAll.css");
+@font-face {
+    font-family: 'GangwonEduAll';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.ttf') format("truetype");
+    font-display: swap;
+};
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+
+@layer base{
+    html{
+        @apply
+       text-white
+       font-pretendard
+       font-light
+       tracking-tight
+       ;
+    }
+    input, textarea{
+        @apply
+        focus:outline-none
+    }
+}
+
 @layer components {
-  .form-input{
-    @apply
-    bg-transparent
-    border-b
-    border-neutral-500
-    ;
-  }
+    .form-wrap{
+        @apply
+        mt-8
+        ;
+    }
+    .form-input{
+        @apply
+        mt-2
+        w-full
+        px-2
+        bg-transparent
+        border-b
+        border-slate-100
+        placeholder:text-white/50
+        ;
+    }
 
-  .form-label {
-    @apply
-    block
-    ;
-  }
+    .form-label {
+        @apply
+        block
+        text-lg
+        font-extralight
+        leading-6
+        ;
+    }
 
-  .contents-wrap{
-    @apply
-    content-center
-    ;
-  }
+    .form-btn{
+        @apply
+        py-1
+        border
+        rounded-lg
+        border-slate-100
+        text-center
+        ;
+    }
 
-  .footer-wrap{
-    @apply
-    fixed
-    flex-1
-    bottom-2
-    text-sm
-    text-slate-400
-    ;
-  }
+    .icon-radio{
+        @apply
+        appearance-none
+        w-3
+        h-3
+        rounded-full
+        border
+        border-slate-100
+        checked:bg-slate-100/50
+      }
+
+    .content-container{
+        @apply
+        mx-auto
+        align-middle
+        ;
+    }
+
+      .footer-wrap{
+            @apply
+            fixed
+            w-full
+            h-[5%]
+            bottom-0
+            bg-[#E57396]
+            text-center
+            text-sm
+            text-white/50
+            leading-8
+            ;
+      }
+
+
+
+
 }

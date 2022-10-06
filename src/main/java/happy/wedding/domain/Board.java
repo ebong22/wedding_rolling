@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -22,6 +24,8 @@ public class Board {
     private String bridge;  // 신부
 
     private String groom;   // 신랑
+
+    private LocalDate weddingDay;
 
     @Embedded
     private EntityInfo entityInfo;

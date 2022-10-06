@@ -33,7 +33,7 @@ public class BoardController {
         Optional<Board> board = Optional.ofNullable(boardService.findById(id));
         if( board.isPresent() ) {
             model.addAttribute("contents", boardService.getContentsByBoardId(id));
-            model.addAttribute("boardId", id);
+            model.addAttribute("board", board.get());
             return "board/list";
         }
         else{
@@ -75,6 +75,7 @@ public class BoardController {
         board.setName(form.getName());
         board.setBridge(form.getBridge());
         board.setGroom(form.getGroom());
+        board.setWeddingDay(form.getWeddingDay());
         // @todo 암호화 추가
         board.setPassword(form.getPassword());
         board.setEntityInfo(new EntityInfo());

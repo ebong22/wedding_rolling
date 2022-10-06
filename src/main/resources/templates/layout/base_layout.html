@@ -8,14 +8,15 @@
   <title th:replace="${title}">레이아웃 타이틀</title>
 </head>
 <body>
-<div class="mx-auto flex w-full h-screen px-10 bg-slate-300 flex-col ">
-  <div class="flex-1">
+<div id="body-container" class="mx-auto w-full h-screen pt-9 bg-wd-pink ">
+  <div class="grid px-10 pb-7 h-[95%] overflow-scroll">
     <div th:replace="${content}" >
     </div>
   </div>
   <footer class="footer-wrap">
     Copyright 2022. E_Bong All rights reserved.
   </footer>
+
 </div>
 <script type="text/javascript" src="/js/library/html2canvas.min.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>

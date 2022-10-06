@@ -21,18 +21,21 @@
     <div id="board-list-wrap">
 
         <div class="py-5 text-center">
-            <h2>게시판 리스트</h2>
+            <p class="text-base" th:text="${board.weddingDay}">
+            <p class="text-xl mt-2">[[ ${board.bridge}]] ♥︎ [[${board.groom}]]</p>
+            <p class="text-5xl">결혼합니다</p>
+            <p class="text-base">저희의 앞날을 응원해주세요!</p>
         </div>
-        <ul>
-            <li th:each="list : ${contents}" >
-                <p th:text="${list.listIcon}">listIcon</p>
+        <ul class="grid grid-cols-4 gap-2">
+            <li th:each="list : ${contents}">
+                <img th:src="@{/image/{icon}.svg(icon=${list.listIcon})}">
     <!--            <p th:text="${list.name}">name</p>-->
                 <a th:href="@{/contents/view/{id}(id=${list.id})}" th:text="${list.name}"> 상세보기 </a>
             </li>
         </ul>
 
-        <a th:href="@{/contents/{boardId}(boardId=${boardId})}"> 축하하기 </a>
-        <a href="javascript:common.downloadImage('board-list-wrap')">이미지로 다운로드</a>
+        <a th:href="@{/contents/{boardId}(boardId=${board.id})}" class="block mx-auto form-btn"> 축하하기 </a>
+        <a href="javascript:common.downloadImage('body-container')" class="block mx-auto form-btn mt-2">이미지로 다운로드</a>
 
 
 
