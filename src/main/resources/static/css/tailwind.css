@@ -1,27 +1,28 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
 
-@import url("https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAll.css");
+@import url('https://webfontworld.github.io/score/SCoreDream.css');
 
-@font-face {
-  font-family: 'GangwonEduAll';
+@import url('https://webfontworld.github.io/earlyfont/EF_Diary.css');
 
-  font-weight: 400;
+@import url('https://webfontworld.github.io/Cafe24Oneprettynight/Cafe24Oneprettynight.css');
 
-  font-style: normal;
+@import url('https://webfontworld.github.io/gangwon/GangwonEduAll.css');
 
-  src: url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.eot');
+/*pretendard*/
 
-  src: url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.eot?#iefix') format('embedded-opentype'),
-         url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.woff2') format('woff2'),
-         url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.woff') format('woff'),
-         url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.ttf') format("truetype");
+/*마포꽃섬*/
 
-  font-display: swap;
-}
+/*@import url('https://webfontworld.github.io/mapo/MapoFlowerIsland.css');*/
 
-/*
-! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
-*/
+/*에스코어드림*/
+
+/*다이어리체*/
+
+/*고운밤체*/
+
+/*강원교육모두체*/
+
+/*! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com*/
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
@@ -432,16 +433,25 @@ video {
 }
 
 html{
-  font-family: pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-family: GangwonEduAll, pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   font-weight: 300;
   letter-spacing: -0.025em;
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(241 245 249 / var(--tw-text-opacity));
 }
 
 input:focus,  textarea:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+section{
+  height: 100%;
+  overflow: scroll;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 *, ::before, ::after{
@@ -572,6 +582,16 @@ input:focus,  textarea:focus{
   }
 }
 
+/* contents */
+
+.contents-wrap{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 24rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 128 159 / var(--tw-bg-opacity));
+}
+
 .form-wrap{
   margin-top: 2rem;
 }
@@ -580,53 +600,71 @@ input:focus,  textarea:focus{
   margin-top: 0.5rem;
   width: 100%;
   border-bottom-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(241 245 249 / var(--tw-border-opacity));
+  border-color: rgb(241 245 249 / 0.7);
   background-color: transparent;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
 .form-input::-moz-placeholder{
-  color: rgb(255 255 255 / 0.5);
+  color: rgb(241 245 249 / 0.4);
 }
 
 .form-input::placeholder{
-  color: rgb(255 255 255 / 0.5);
+  color: rgb(241 245 249 / 0.4);
+}
+
+.form-input:focus{
+  --tw-border-opacity: 1;
+  border-color: rgb(253 224 71 / var(--tw-border-opacity));
 }
 
 .form-label{
   display: block;
-  font-size: 1.125rem;
-  font-weight: 200;
+  font-size: 1.25rem;
+  font-weight: 300;
   line-height: 1.5rem;
+  color: rgb(241 245 249 / 0.8);
 }
 
 .form-btn{
   border-radius: 0.5rem;
   border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(241 245 249 / var(--tw-border-opacity));
+  border-color: rgb(241 245 249 / 0.9);
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
-.icon-radio{
-  height: 0.75rem;
-  width: 0.75rem;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+.icon-imageBox{
   border-radius: 9999px;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(241 245 249 / var(--tw-border-opacity));
+  background-color: rgb(241 245 249 / 0.2);
 }
 
-.icon-radio:checked{
-  background-color: rgb(241 245 249 / 0.5);
+.content-view-textBox{
+  margin-top: 0.25rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(241 245 249 / 0.7);
+  background-color: transparent;
+  padding: 0.5rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
+
+#pdf-wrap{
+  margin-left: auto;
+  margin-right: auto;
+  height: 1500px;
+  width: 1500px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 128 159 / var(--tw-bg-opacity));
+}
+
+/* footer */
 
 .footer-wrap{
   position: fixed;
@@ -643,6 +681,10 @@ input:focus,  textarea:focus{
 
 .visible{
   visibility: visible;
+}
+
+.invisible{
+  visibility: hidden;
 }
 
 .static{
@@ -665,6 +707,18 @@ input:focus,  textarea:focus{
   position: sticky;
 }
 
+.float-left{
+  float: left;
+}
+
+.clear-both{
+  clear: both;
+}
+
+.m-1{
+  margin: 0.25rem;
+}
+
 .mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -682,8 +736,28 @@ input:focus,  textarea:focus{
   margin-top: 1rem;
 }
 
+.mt-6{
+  margin-top: 1.5rem;
+}
+
+.mt-12{
+  margin-top: 3rem;
+}
+
+.ml-1{
+  margin-left: 0.25rem;
+}
+
 .mt-10{
   margin-top: 2.5rem;
+}
+
+.ml-2{
+  margin-left: 0.5rem;
+}
+
+.mt-1{
+  margin-top: 0.25rem;
 }
 
 .block{
@@ -770,6 +844,30 @@ input:focus,  textarea:focus{
   display: none;
 }
 
+.h-1{
+  height: 0.25rem;
+}
+
+.h-0{
+  height: 0px;
+}
+
+.h-full{
+  height: 100%;
+}
+
+.h-\[40px\]{
+  height: 40px;
+}
+
+.h-\[270px\]{
+  height: 270px;
+}
+
+.h-\[80\%\]{
+  height: 80%;
+}
+
 .h-screen{
   height: 100vh;
 }
@@ -778,36 +876,63 @@ input:focus,  textarea:focus{
   height: 95%;
 }
 
-.w-\[70\%\]{
-  width: 70%;
+.max-h-\[400px\]{
+  max-height: 400px;
+}
+
+.w-0{
+  width: 0px;
 }
 
 .w-full{
   width: 100%;
 }
 
+.max-w-\[65px\]{
+  max-width: 65px;
+}
+
 .transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.\!transform{
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+}
+
+.resize{
+  resize: both;
+}
+
+.appearance-none{
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .grid-cols-4{
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.gap-2{
-  gap: 0.5rem;
-}
-
 .gap-3{
   gap: 0.75rem;
+}
+
+.gap-x-2{
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+}
+
+.gap-y-6{
+  row-gap: 1.5rem;
 }
 
 .gap-y-4{
   row-gap: 1rem;
 }
 
-.self-center{
-  align-self: center;
+.overflow-hidden{
+  overflow: hidden;
 }
 
 .overflow-scroll{
@@ -836,22 +961,24 @@ input:focus,  textarea:focus{
   padding-bottom: 1.25rem;
 }
 
+.px-1{
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 .py-2{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
 
-.px-10{
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+.px-2{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
-.pt-9{
-  padding-top: 2.25rem;
-}
-
-.pb-7{
-  padding-bottom: 1.75rem;
+.py-3{
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .text-left{
@@ -862,19 +989,44 @@ input:focus,  textarea:focus{
   text-align: center;
 }
 
-.text-base{
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 .text-xl{
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 .text-5xl{
   font-size: 3rem;
   line-height: 1;
+}
+
+.text-base{
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-sm{
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-lg{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-4xl{
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .uppercase{
@@ -893,6 +1045,14 @@ input:focus,  textarea:focus{
   font-style: italic;
 }
 
+.leading-10{
+  line-height: 2.5rem;
+}
+
+.text-white\/50{
+  color: rgb(255 255 255 / 0.5);
+}
+
 .underline{
   text-decoration-line: underline;
 }
@@ -905,11 +1065,30 @@ input:focus,  textarea:focus{
   text-decoration-line: line-through;
 }
 
+.shadow{
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.outline{
+  outline-style: solid;
+}
+
 .blur{
   --tw-blur: blur(8px);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
+.grayscale{
+  --tw-grayscale: grayscale(100%);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
 .filter{
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.focus\:bg-slate-100\/10:focus{
+  background-color: rgb(241 245 249 / 0.1);
 }

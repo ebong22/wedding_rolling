@@ -8,8 +8,8 @@
   <title th:replace="${title}">레이아웃 타이틀</title>
 </head>
 <body>
-<div id="body-container" class="mx-auto w-full h-screen pt-9 bg-wd-pink ">
-  <div class="grid px-10 pb-7 h-[95%] overflow-scroll">
+<div id="body-container" class="mx-auto w-full h-screen bg-wd-pink ">
+  <div class=" h-[95%] overflow-hidden contents-wrap" id="img-canvas">
     <div th:replace="${content}" >
     </div>
   </div>
@@ -19,6 +19,7 @@
 
 </div>
 <script type="text/javascript" src="/js/library/html2canvas.min.js"></script>
+<script type="text/javascript" src="/js/html2pdf.bundle.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>
 </body>
 </html>

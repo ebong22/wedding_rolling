@@ -4,50 +4,78 @@
 <html th:replace="~{/layout/base_layout :: layout(~{::title}, ~{::section})}"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-
-<head>
     <title>축하해</title>
 </head>
 
 
 <body>
-<section>
+<section class="">
     <div>
-
-        <div class="py-5 text-center text-xl">
-            <h2>축하 메세지를 작성해주세요</h2>
+        <div class="py-5 text-center text-3xl">
+            <h2>
+                축하 메세지를 <br>
+                작성해 볼까요? :)
+            </h2>
         </div>
 
         <form action="form.html" th:action method="post" th:object="${contentsForm}">
-            <div class="mt-8 form-label">목록에 표시할 아이콘을 선택해주세요!</div>
-            <ul class="icon-select grid grid-cols-4 gap-3 gap-y-4 mt-2">
+            <div class="mt-6 form-label">
+                목록에 표시할 아이콘을 선택해주세요!
+                <p class="field-error" th:errors="*{listIcon}"> 아이콘 선택 오류</p>
+            </div>
+            <ul class="icon-select grid grid-cols-4 gap-3">
                 <li th:each="list : ${listIcon}" class="text-center" >
-                    <input type="radio" th:field="*{listIcon}" th:value="${list}" class="icon-radio">
-                    <label th:for="${#ids.prev('listIcon')}">
-                        <img th:src="@{/image/{icon}.svg(icon=${list})}">
+                    <label class="icon-label">
+                        <input type="radio" th:field="*{listIcon}" th:value="${list}" class="appearance-none h-0 w-0">
+                        <p class = 'px-1 max-w-[65px]'>
+                            <img th:src="@{/image/{icon}.svg(icon=${list})}" th:alt="${list}" class="mx-auto">
+                        </p>
                     </label>
                 </li>
             </ul>
-            <div class="mt-10">
+            <div class="mt-12">
                 <label for="name" class="form-label">
-                    메세지를 작성하시는분의<br>
+                    마음을 전하는 분의<br>
                     이름은 무엇인가요?
+                    <span class="text-white/50 text-sm ml-1">최대 5자</span>
                 </label>
-                <input type="text" th:field="*{name}" class="form-input" placeholder="별명도 좋아요 :)">
+                <input type="text" th:field="*{name}" class="form-input" placeholder="별명도 좋아요 :)"
+                       maxlength="5" oninput="common.checkTextMaxLength(this);">
+                <p class="field-error" th:errors="*{name}"> 이름 입력 오류</p>
             </div>
-            <div class= "mt-10">
-                <label for="contents" class="form-label"> 전하고 싶은 말을 적어볼까요?</label>
-                <textarea type="text" th:field="*{contents}" class="form-input border rounded-lg py-2" placeholder="축하의 말을 전해보세요!"
-                        rows="6" maxlength="400">
+            <div class= "mt-12">
+                <label for="contents" class="form-label">
+                    전하고 싶은 말을 적어볼까요?
+                    <span class="text-white/50 text-sm ml-1">최대 200자</span>
+                </label>
+                <textarea type="text" th:field="*{contents}" rows="6" maxlength="200"
+                          class="form-input border rounded-lg py-2 focus:bg-slate-100/10"
+                          placeholder="축하의 말을 전해보세요!"
+                          oninput="common.checkTextMaxLength(this);">
                 </textarea>
+                <p class="field-error" th:errors="*{contents}"> 내용 입력 오류</p>
             </div>
 
             <div class="form-btn mt-4">
-                <button class="" type="submit">축하 보내기</button>
+                <button class="submit-btn" type="submit">축하 보내기</button>
             </div>
         </form>
-
     </div> <!-- /container -->
+
+    <script type="text/javascript">
+        window.onload = function(){
+            let labels = document.querySelectorAll(".icon-label");
+            labels.forEach(itm=> itm.addEventListener("click",common.iconCheckedMotion));
+
+            document.querySelector(".submit-btn").addEventListener("click",function(event){
+                event.preventDefault();
+                common.enterChangeBr();
+                document.querySelector("form").submit();
+            });
+
+        }
+    </script>
 </section>
+
 </body>
 </html>

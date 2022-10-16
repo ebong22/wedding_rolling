@@ -1,17 +1,15 @@
+/*pretendard*/
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
-@import url("https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAll.css");
-@font-face {
-    font-family: 'GangwonEduAll';
-    font-weight: 400;
-    font-style: normal;
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.eot');
-    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.eot?#iefix') format('embedded-opentype'),
-         url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.woff2') format('woff2'),
-         url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.woff') format('woff'),
-         url('https://cdn.jsdelivr.net/gh/webfontworld/gangwon/GangwonEduAllLight.ttf') format("truetype");
-    font-display: swap;
-};
-
+/*마포꽃섬*/
+/*@import url('https://webfontworld.github.io/mapo/MapoFlowerIsland.css');*/
+/*에스코어드림*/
+@import url('https://webfontworld.github.io/score/SCoreDream.css');
+/*다이어리체*/
+@import url('https://webfontworld.github.io/earlyfont/EF_Diary.css');
+/*고운밤체*/
+@import url('https://webfontworld.github.io/Cafe24Oneprettynight/Cafe24Oneprettynight.css');
+/*강원교육모두체*/
+@import url('https://webfontworld.github.io/gangwon/GangwonEduAll.css');
 
 @tailwind base;
 @tailwind components;
@@ -22,8 +20,9 @@
 @layer base{
     html{
         @apply
-       text-white
-       font-pretendard
+       text-slate-100
+       /*font-pretendard*/
+       font-GangwonEduAll
        font-light
        tracking-tight
        ;
@@ -32,9 +31,26 @@
         @apply
         focus:outline-none
     }
+
+    section{
+        @apply
+        h-full
+        py-5
+        px-10
+        overflow-scroll
+    }
 }
 
 @layer components {
+/* contents */
+    .contents-wrap{
+        @apply
+        max-w-sm
+        mx-auto
+        bg-wd-pink
+        ;
+    }
+
     .form-wrap{
         @apply
         mt-8
@@ -47,16 +63,18 @@
         px-2
         bg-transparent
         border-b
-        border-slate-100
-        placeholder:text-white/50
+        border-slate-100/70
+        placeholder:text-slate-100/40
+        focus:border-yellow-300
         ;
     }
 
     .form-label {
         @apply
         block
-        text-lg
-        font-extralight
+        text-xl
+        text-slate-100/80
+        font-light
         leading-6
         ;
     }
@@ -66,8 +84,9 @@
         py-1
         border
         rounded-lg
-        border-slate-100
+        border-slate-100/90
         text-center
+        text-lg
         ;
     }
 
@@ -78,9 +97,15 @@
         h-3
         rounded-full
         border
-        border-slate-100
+        border-slate-100/90
         checked:bg-slate-100/50
-      }
+    }
+
+    .icon-imageBox{
+        @apply
+        rounded-full
+        bg-slate-100/20
+    }
 
     .content-container{
         @apply
@@ -89,19 +114,42 @@
         ;
     }
 
-      .footer-wrap{
+   .content-view-textBox{
+        @apply
+        mt-1
+        w-full
+        p-2
+        bg-transparent
+        border
+        rounded-lg
+        border-slate-100/70
+        text-lg
+        ;
+    }
+
+    #pdf-wrap{
             @apply
-            fixed
-            w-full
-            h-[5%]
-            bottom-0
-            bg-[#E57396]
-            text-center
-            text-sm
-            text-white/50
-            leading-8
+            w-[1500px]
+            h-[1500px]
+            mx-auto
+            bg-wd-pink
             ;
-      }
+        }
+
+/* footer */
+    .footer-wrap{
+        @apply
+        fixed
+        w-full
+        h-[5%]
+        bottom-0
+        bg-[#E57396]
+        text-center
+        text-sm
+        text-white/50
+        leading-8
+        ;
+    }
 
 
 

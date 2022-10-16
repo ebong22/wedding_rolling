@@ -6,25 +6,26 @@
 <html th:replace="~{/layout/base_layout :: layout(~{::title}, ~{::section})}"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-
-<head>
     <title>축하해</title>
 </head>
 
 
 <body>
 <section>
-    <div>
-
-        <div class="py-5 text-center">
-            <h2>게시판 상세</h2>
+    <div class="h-full">
+        <div class="text-center mt-4">
+            <img th:src="@{/image/{icon}.svg(icon=${contents.listIcon})}" alt="아이콘이미지" class="mx-auto">
+            <p class="text-4xl mt-2">결혼 축하해요!</p>
+            <div class="text-center px-2 text-2xl mt-1">
+                <span>From</span>
+                <span th:text="${contents.name}" class="ml-2"></span>
+            </div>
         </div>
-        <div th:text="${contents.listIcon}"></div>
-        <div th:text="${contents.name}"></div>
-        <div th:text="${contents.contents}"></div>
-
-        <a th:href="@{/view/{id}(id=${contents.board.id})}"> 목록 </a>
-    </div> <!-- /container -->
+        <div class="h-[80%] max-h-[400px]">
+            <div th:utext="${contents.contents}" class="h-[80%] content-view-textBox overflow-scroll"></div>
+            <a th:href="@{/view/{id}(id=${contents.board.id})}" class="block mx-auto form-btn mt-4"> 돌아가기 </a>
+        </div>
+    </div>
 </section>
 </body>
 </html>

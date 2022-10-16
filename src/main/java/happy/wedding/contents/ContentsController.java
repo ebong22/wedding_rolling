@@ -9,7 +9,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @Slf4j
@@ -33,6 +37,12 @@ public class ContentsController {
         return "contents/view";
     }
 
+    @GetMapping("/view/pdf/{boardId}")
+    public String viewPdf(@PathVariable Long boardId, Model model){
+        model.addAttribute("contents", boardService.getContentsByBoardId(boardId));
+        return "contents/view-pdf";
+    }
+
     /**
      * 게시글 작성 form
      * @return
@@ -50,12 +60,22 @@ public class ContentsController {
      * @return
      */
     @PostMapping("{boardId}")
-    public String saveContents(@ModelAttribute ContentsForm form, @PathVariable Long boardId){
+    public String saveContents(@Validated @ModelAttribute ContentsForm form, Errors errors, @PathVariable Long boardId){
+//        if(errors.hasErrors()){
+//            return "contents/form";
+//        }
+        //validated가 작동을 안하는중
         Contents contents = makeContents(form, boardId);
         Long contentsId = contentsService.save(contents);
         return "redirect:/contents/view/" + contentsId; //view/{id}로 Redirect or contents/view로
     }
 
+    /**
+     * form to Contents
+     * @param form
+     * @param boardId
+     * @return
+     */
     private Contents makeContents(ContentsForm form, Long boardId) {
         Contents contents = new Contents();
         contents.setName(form.getName());

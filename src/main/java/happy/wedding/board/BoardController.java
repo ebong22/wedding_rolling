@@ -83,9 +83,11 @@ public class BoardController {
     }
 
     // GET downloadImage/{boardId}
+    @CrossOrigin("http://localhost:8080")
     @GetMapping("download/{id}")
-    public void downloadImage(@PathVariable Long id){
-        // 찾아보기
+    public String drawPdf(@PathVariable Long id, Model model){
+        model.addAttribute("contents", boardService.getContentsByBoardId(id));
+        return "contents/view-pdf";
     }
 
     // GET downloadFile/{boardId}

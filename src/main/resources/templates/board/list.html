@@ -10,8 +10,6 @@
 <html th:replace="~{/layout/base_layout :: layout(~{::title}, ~{::section})}"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-
-<head>
     <title>축하해</title>
 </head>
 
@@ -19,25 +17,26 @@
 <body>
 <section>
     <div id="board-list-wrap">
-
         <div class="py-5 text-center">
-            <p class="text-base" th:text="${board.weddingDay}">
-            <p class="text-xl mt-2">[[ ${board.bridge}]] ♥︎ [[${board.groom}]]</p>
-            <p class="text-5xl">결혼합니다</p>
-            <p class="text-base">저희의 앞날을 응원해주세요!</p>
+            <img src="/image/couple.svg" alt="couple" class="mx-auto mt-2">
+            <p class="text-xl mt-4" th:text="${board.weddingDay}">
+            <p class="text-2xl couple-name">[[${board.bridge}]] ♥︎ [[${board.groom}]]</p>
+            <p class="text-5xl mt-2">결혼합니다</p>
+            <p class="text-base mt-2">저희의 앞날을 응원해주세요!</p>
         </div>
-        <ul class="grid grid-cols-4 gap-2">
-            <li th:each="list : ${contents}">
-                <img th:src="@{/image/{icon}.svg(icon=${list.listIcon})}">
-    <!--            <p th:text="${list.name}">name</p>-->
+        <ul class="grid grid-cols-4 gap-x-2 gap-y-6">
+            <li th:each="list : ${contents}" class="text-center">
+                <a th:href="@{/contents/view/{id}(id=${list.id})}">
+                    <img th:src="@{/image/{icon}.svg(icon=${list.listIcon})}" th:alt="${list.name}">
+                </a>
                 <a th:href="@{/contents/view/{id}(id=${list.id})}" th:text="${list.name}"> 상세보기 </a>
             </li>
         </ul>
-
-        <a th:href="@{/contents/{boardId}(boardId=${board.id})}" class="block mx-auto form-btn"> 축하하기 </a>
-        <a href="javascript:common.downloadImage('body-container')" class="block mx-auto form-btn mt-2">이미지로 다운로드</a>
-
-
+        <div class="btn-wrap mt-8">
+            <a th:href="@{/contents/{boardId}(boardId=${board.id})}" class="block mx-auto form-btn"> 축하하기 </a>
+            <a href="javascript:common.downloadImage('img-canvas')" class="block mx-auto form-btn mt-2">이미지로 다운로드</a>
+            <a href="javascript:common.downloadPdfBtn()" id="pdf-btn" class="block mx-auto form-btn mt-2" th:data-board-id="${board.id}">pdf로 다운로드</a>
+        </div>
 
     </div> <!-- /container -->
 </section>

@@ -22,6 +22,7 @@ public class Contents {
 
     private String name;
 
+    @Lob
     private String contents;
 
     @Enumerated(EnumType.STRING)

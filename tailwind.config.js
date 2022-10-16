@@ -8,6 +8,14 @@ module.exports = {
                     , 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans'
                     , 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
             ],
+            'GangwonEduAll':['GangwonEduAll', 'pretendard', 'ui-sans-serif', 'system-ui', '-apple-system'
+                    , 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans'
+                    , 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
+            ],
+            'EF_Diary':['EF_Diary', 'pretendard', 'ui-sans-serif', 'system-ui', '-apple-system'
+                    , 'BlinkMacSystemFont', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans'
+                    , 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
+            ],
         },
         colors:{
             'wd-pink' : '#E5809F',
