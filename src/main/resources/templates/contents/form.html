@@ -20,19 +20,20 @@
 
         <form action="form.html" th:action method="post" th:object="${contentsForm}">
             <div class="mt-6 form-label">
-                목록에 표시할 아이콘을 선택해주세요!
-                <p class="field-error" th:errors="*{listIcon}"> 아이콘 선택 오류</p>
+                목록에 표시할 아이콘을 선택해주세요
             </div>
             <ul class="icon-select grid grid-cols-4 gap-3">
                 <li th:each="list : ${listIcon}" class="text-center" >
                     <label class="icon-label">
-                        <input type="radio" th:field="*{listIcon}" th:value="${list}" class="appearance-none h-0 w-0">
+                        <input type="radio" th:field="*{listIcon}" th:value="${list}" class="appearance-none h-0 w-0"
+                            th:checked="#strings.equals(list,selectedIcon)">[[${list}]] [[${selectedIcon}]]
                         <p class = 'px-1 max-w-[65px]'>
                             <img th:src="@{/image/{icon}.svg(icon=${list})}" th:alt="${list}" class="mx-auto">
                         </p>
                     </label>
                 </li>
             </ul>
+            <p class="field-error" th:errors="*{listIcon}"> 아이콘 선택 오류</p>
             <div class="mt-12">
                 <label for="name" class="form-label">
                     마음을 전하는 분의<br>

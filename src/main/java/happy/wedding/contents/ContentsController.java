@@ -9,11 +9,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Map;
 
 @Controller
 @Slf4j
@@ -60,10 +62,13 @@ public class ContentsController {
      * @return
      */
     @PostMapping("{boardId}")
-    public String saveContents(@Validated @ModelAttribute ContentsForm form, Errors errors, @PathVariable Long boardId){
-//        if(errors.hasErrors()){
-//            return "contents/form";
-//        }
+    public String saveContents(@Validated @ModelAttribute ContentsForm form, BindingResult bindingResult, @PathVariable Long boardId, Model model){
+        if(bindingResult.hasErrors()){
+            log.info("erros={}", bindingResult);
+            model.addAttribute("listIcon", ListIcon.values());
+            model.addAttribute("selectedIcon", form.getListIcon());
+            return "contents/form";
+        }
         //validated가 작동을 안하는중
         Contents contents = makeContents(form, boardId);
         Long contentsId = contentsService.save(contents);
