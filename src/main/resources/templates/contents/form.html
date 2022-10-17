@@ -26,8 +26,8 @@
                 <li th:each="list : ${listIcon}" class="text-center" >
                     <label class="icon-label">
                         <input type="radio" th:field="*{listIcon}" th:value="${list}" class="appearance-none h-0 w-0"
-                            th:checked="#strings.equals(list,selectedIcon)">[[${list}]] [[${selectedIcon}]]
-                        <p class = 'px-1 max-w-[65px]'>
+                               th:attr="checked=${#strings.equals(list,selectedIcon) ? 'true' :'false'}">
+                        <p class = 'px-1 max-w-[65px]' th:classappend= "${#strings.equals(list,selectedIcon) ? 'icon-imageBox' : ''}">
                             <img th:src="@{/image/{icon}.svg(icon=${list})}" th:alt="${list}" class="mx-auto">
                         </p>
                     </label>
