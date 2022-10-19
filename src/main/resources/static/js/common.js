@@ -6,6 +6,16 @@ const common = {
         textarea.value = text;
     },
 
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    /////////비동기로 컨트롤러에서 체크 후 true일 떄////////////////
+    ////////////a 태그에 type에 맞는 js function 링크 걸어주기//////////////
+    ////////////////////////////////////////////////
+    checkedPassword(type){
+        document.querySelector("#check-password").classList.remove("hidden");
+    },
     downloadImage(id){
         let imgElement =  document.getElementById(id);
         // 패딩 주기(보기 좋게 할라고)
@@ -28,7 +38,7 @@ const common = {
         // 버튼 display
         btnWrap.classList.remove("hidden");
         // 패딩 삭제
-        imgElement.classList.removeR("py-3");
+        imgElement.classList.remove("py-3");
     },
     downloadURI(uri, name){
           var link = document.createElement("a")
