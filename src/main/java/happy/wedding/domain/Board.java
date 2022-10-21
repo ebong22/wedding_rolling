@@ -21,6 +21,8 @@ public class Board {
 
     private String password; // 비밀번호 - 다운로드 기능 사용 시 인증용
 
+    private String salt;    // 암호화 솔트
+
     private String bridge;  // 신부
 
     private String groom;   // 신랑

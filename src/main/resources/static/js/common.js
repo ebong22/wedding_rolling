@@ -13,9 +13,42 @@ const common = {
     /////////비동기로 컨트롤러에서 체크 후 true일 떄////////////////
     ////////////a 태그에 type에 맞는 js function 링크 걸어주기//////////////
     ////////////////////////////////////////////////
-    checkedPassword(type){
+    passwordPopup(downloadType){
         document.querySelector("#check-password").classList.remove("hidden");
+        document.querySelector("#password-pop-btn").dataset.type=downloadType;
     },
+
+    checkPassword(){
+        const downloadType = document.querySelector("#password-pop-btn").dataset.type;
+        console.log(downloadType);
+
+        const pwInput = document.querySelector("#password-input");
+        if(pwInput.value != null && pwInput !=""){
+            fetch("http://127.0.0.1:8080/check/"+ pwInput.dataset.boardId, {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body:pwInput.value,
+                }).then((response) => response.json())
+                .then((data) => {
+                    if(data == true && downloadType == 'img' ){
+                        common.downloadImage('img-canvas');
+                    }
+                    if(data == true && downloadType == 'pdf' ){
+                        common.downloadPdfBtn();
+                    }
+                    if(data == false){
+                        alert("비밀번호를 확인해 주세요");
+                    }
+                });
+        }
+    },
+
+    download(type){
+        const authYn = common.checkPassword();
+    },
+
     downloadImage(id){
         let imgElement =  document.getElementById(id);
         // 패딩 주기(보기 좋게 할라고)

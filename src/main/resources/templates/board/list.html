@@ -36,12 +36,12 @@
             <a th:href="@{/contents/{boardId}(boardId=${board.id})}" class="block mx-auto form-btn"> 축하하기 </a>
 <!--            <a href="javascript:common.downloadImage('img-canvas')" class="block mx-auto form-btn mt-2">이미지로 다운로드</a>-->
 <!--            <a href="javascript:common.downloadPdfBtn()" id="pdf-btn" class="block mx-auto form-btn mt-2" th:data-board-id="${board.id}">pdf로 다운로드</a>-->
-            <a href="javascript:common.checkedPassword('img')" class="block mx-auto form-btn mt-2">이미지로 다운로드</a>
-            <a href="javascript:common.checkedPassword('pdf')" id="pdf-btn" class="block mx-auto form-btn mt-2" th:data-board-id="${board.id}">pdf로 다운로드</a>
+            <a href="javascript:common.passwordPopup('img')" class="block mx-auto form-btn mt-2">이미지로 다운로드</a>
+            <a href="javascript:common.passwordPopup('pdf')" id="pdf-btn" class="block mx-auto form-btn mt-2" th:data-board-id="${board.id}">pdf로 다운로드</a>
         </div>
         <div id="check-password" class="hidden absolute top-1 bg-yellow-400 w-[80%] h-[50%]">
-            <input type="text" th:value="${password}" class="form-input"/>
-            <a href="javascript:void(0)" class="block mx-auto form-btn mt-2"> 다운로드 </a>
+            <input type="text" class="form-input" id="password-input" th:value="${password}" th:data-board-id="${board.id}"/>
+            <a href="javascript:common.checkPassword()" id="password-pop-btn" class="block mx-auto form-btn mt-2"> 다운로드 </a>
         </div>
 
     </div> <!-- /container -->
