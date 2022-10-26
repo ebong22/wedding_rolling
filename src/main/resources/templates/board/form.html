@@ -8,26 +8,33 @@
 
 <body>
 <section class="">
+<!----------
+지금 여기 VALidation이 적용이 안되서 진행중
 
+--------->
     <h1 class="text-center">logo</h1>
     <div class="text-left">
         <form action="form.html" th:action method="post" th:object="${board}">
             <div class="form-wrap">
                 <label for="name" class="form-label">보드이름</label>
                 <input type="text" th:field="*{name}" class="form-input" placeholder="이름을 입력하세요">
+                <p class="field-error" th:errors="*{name}"> 내용 입력 오류</p>
             </div>
             <div class="form-wrap">
                 <label for="bridge" class="form-label">신부님의 이름은 무엇인가요?</label>
                 <input type="text" th:field="*{bridge}" class="form-input" placeholder="이름을 입력하세요">
+                <p class="field-error" th:errors="*{bridge}"> 내용 입력 오류</p>
             </div>
             <div class="form-wrap">
                 <label for="groom" class="form-label">신랑님의 이름도 알려주세요!</label>
                 <input type="text" th:field="*{groom}" class="form-input" placeholder="이름을 입력하세요">
+                <p class="field-error" th:errors="*{groom}"> 내용 입력 오류</p>
             </div>
             <div class="form-wrap">
                 <label for="weddingDay" class="form-label">결혼 날짜는 언제인가요?</label>
                 <input type="date" th:field="*{weddingDay}" class="form-input" placeholder="숫자 6자리"
                        minlength="6" maxlength="6" onInput="this.value=this.value.replace(/[^-0-9]/g,'');">
+                <p class="field-error" th:errors="*{weddingDay}"> 내용 입력 오류</p>
             </div>
             <div class="form-wrap">
                 <label for="password" class="form-label">
@@ -36,6 +43,7 @@
                 </label>
                 <input type="text" th:field="*{password}" class="form-input" placeholder="숫자 6자리"
                        minlength="6" maxlength="6" onInput="this.value=this.value.replace(/[^-0-9]/g,'');">
+                <p class="field-error" th:errors="*{password}"> 내용 입력 오류</p>
             </div>
 
             <div class="mt-8">

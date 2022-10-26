@@ -1,4 +1,7 @@
 spring:
+  messages:
+    encoding: UTF-8
+    basename: messages,error
   datasource:
     url: jdbc:h2:tcp://localhost/~/test
     username: sa

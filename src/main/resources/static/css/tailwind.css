@@ -643,6 +643,15 @@ section{
   background-color: rgb(241 245 249 / 0.2);
 }
 
+.field-error{
+  margin-top: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(89 186 151 / var(--tw-bg-opacity));
+  text-align: center;
+  --tw-text-opacity: 1;
+  color: rgb(229 128 159 / var(--tw-text-opacity));
+}
+
 .content-view-textBox{
   margin-top: 0.25rem;
   width: 100%;
@@ -655,13 +664,65 @@ section{
   line-height: 1.75rem;
 }
 
-#pdf-wrap{
+.info-text{
+  text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgb(241 245 249 / 0.7);
+}
+
+#check-password{
+  position: fixed;
+  top: 30%;
+  left: 20%;
+  z-index: 9999;
+  width: 60%;
+  max-width: 24rem;
+  border-radius: 0.75rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(89 186 151 / var(--tw-bg-opacity));
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+#pw-x-btn{
+  position: absolute;
+  right: 0.5rem;
+  top: 0.125rem;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+#popup-bg{
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 9990;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(38 38 38 / 0.3);
+}
+
+#pdf-wrap-inner{
   margin-left: auto;
   margin-right: auto;
   height: 1500px;
   width: 1500px;
   --tw-bg-opacity: 1;
   background-color: rgb(229 128 159 / var(--tw-bg-opacity));
+  padding: 0px;
+}
+
+.pdf-list-wrap{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+  row-gap: 1rem;
 }
 
 /* footer */
@@ -736,6 +797,10 @@ section{
   margin-top: 1rem;
 }
 
+.mt-3{
+  margin-top: 0.75rem;
+}
+
 .mt-6{
   margin-top: 1.5rem;
 }
@@ -758,6 +823,18 @@ section{
 
 .mt-1{
   margin-top: 0.25rem;
+}
+
+.mt-16{
+  margin-top: 4rem;
+}
+
+.mt-14{
+  margin-top: 3.5rem;
+}
+
+.mt-20{
+  margin-top: 5rem;
 }
 
 .block{
@@ -880,6 +957,10 @@ section{
   max-height: 400px;
 }
 
+.w-\[120\%\]{
+  width: 120%;
+}
+
 .w-0{
   width: 0px;
 }
@@ -890,6 +971,11 @@ section{
 
 .max-w-\[65px\]{
   max-width: 65px;
+}
+
+.rotate-45{
+  --tw-rotate: 45deg;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .transform{
@@ -956,6 +1042,11 @@ section{
   background-color: rgb(229 128 159 / var(--tw-bg-opacity));
 }
 
+.py-3{
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .py-5{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
@@ -974,11 +1065,6 @@ section{
 .px-2{
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-}
-
-.py-3{
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
 }
 
 .text-left{

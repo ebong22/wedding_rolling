@@ -1,4 +1,8 @@
+
+Kakao.init('671dc964346c250e54c044f820ce5a53');
+
 const common = {
+
     enterChangeBr(){
         let textarea = document.querySelector("textarea");
         let text = textarea.value;
@@ -6,20 +10,58 @@ const common = {
         textarea.value = text;
     },
 
-    ////////////////////////////////////////////////
-    ////////////////////////////////////////////////
-    ////////////////////////////////////////////////
-    ////////////////////////////////////////////////
-    /////////비동기로 컨트롤러에서 체크 후 true일 떄////////////////
-    ////////////a 태그에 type에 맞는 js function 링크 걸어주기//////////////
-    ////////////////////////////////////////////////
     passwordPopup(downloadType){
-        document.querySelector("#check-password").classList.remove("hidden");
+        let popWrap = document.querySelector("#check-password");
+        popWrap.classList.remove("hidden");
         document.querySelector("#password-pop-btn").dataset.type=downloadType;
+        let popupBg = document.createElement("div");
+        popupBg.id = "popup-bg";
+        document.querySelector("body").appendChild(popupBg);
+
+        // 배경 클릭 시 팝업 닫기
+        popupBg.addEventListener("click",function(){
+            common.popupClose(popupBg, popWrap);
+        });
+        // 닫기 버튼 클릭 시
+        document.querySelector("#pw-x-btn").addEventListener("click",function(){
+           common.popupClose(popupBg, popWrap);
+       });
     },
 
+    passwordPopup(downloadType){
+            let popWrap = document.querySelector("#check-password");
+            popWrap.classList.remove("hidden");
+            document.querySelector("#password-pop-btn").dataset.type=downloadType;
+            let popupBg = document.createElement("div");
+            popupBg.id = "popup-bg";
+            document.querySelector("body").appendChild(popupBg);
+
+            // 배경 클릭 시 팝업 닫기
+            popupBg.addEventListener("click",function(){
+                common.popupClose(popupBg, popWrap);
+            });
+            // 닫기 버튼 클릭 시
+            document.querySelector("#pw-x-btn").addEventListener("click",function(){
+               common.popupClose(popupBg, popWrap);
+           });
+        },
+    /**
+        비밀번호 확인 팝업 닫기
+    */
+    popupClose(bgElement,popElement){
+        document.querySelector("#password-input").value="";
+        bgElement.remove();
+        popElement.classList.add("hidden");
+    },
+
+    /**
+        비밀번호 확인 <br>
+        다운로드 버튼
+    */
     checkPassword(){
         const downloadType = document.querySelector("#password-pop-btn").dataset.type;
+        const popupBg = document.querySelector("#popup-bg");
+        const popWrap = document.querySelector("#check-password");
         console.log(downloadType);
 
         const pwInput = document.querySelector("#password-input");
@@ -32,11 +74,19 @@ const common = {
                       body:pwInput.value,
                 }).then((response) => response.json())
                 .then((data) => {
-                    if(data == true && downloadType == 'img' ){
-                        common.downloadImage('img-canvas');
-                    }
-                    if(data == true && downloadType == 'pdf' ){
-                        common.downloadPdfBtn();
+                    if(data == true){
+                        if(downloadType == 'img' ){ // 지금 이미지 버튼 숨겨둠(필요가 없을 것 같아서)
+                            common.downloadImage('img-canvas');
+                            common.popupClose(popupBg, popWrap);
+                        }
+                        if(downloadType == 'pdf' ){
+                            common.downloadPdfBtn();
+                            common.popupClose(popupBg, popWrap);
+                        }
+                        if(downloadType == 'kakao'){
+                            document.querySelector("#kakaotalk-sharing-btn").click();
+                            common.popupClose(popupBg, popWrap);
+                        }
                     }
                     if(data == false){
                         alert("비밀번호를 확인해 주세요");
@@ -45,19 +95,18 @@ const common = {
         }
     },
 
-    download(type){
-        const authYn = common.checkPassword();
-    },
+//    download(type){
+//        const authYn = common.checkPassword();
+//    },
 
     downloadImage(id){
         let imgElement =  document.getElementById(id);
-        // 패딩 주기(보기 좋게 할라고)
-        imgElement.classList.add("py-3");
+        // 다운로드용 클래스 추가
+        imgElement.classList.add("py-3", "w-[120%]", "bg-wd-pink");
 
         // 버튼 숨기기
         let btnWrap = document.querySelector(".btn-wrap");
         btnWrap.classList.add("hidden");
-
 
         // 파일명
         let fileNm = document.querySelector(".couple-name").innerText;
@@ -70,8 +119,8 @@ const common = {
         });
         // 버튼 display
         btnWrap.classList.remove("hidden");
-        // 패딩 삭제
-        imgElement.classList.remove("py-3");
+        // 다운로드용 클래스 제거
+        imgElement.classList.remove("py-3", "w-[120%]", "bg-wd-pink");
     },
     downloadURI(uri, name){
           var link = document.createElement("a")
@@ -102,63 +151,45 @@ const common = {
 
     downloadPdf(elementId){
         const element = document.getElementById(elementId);
+        let fileNm = document.querySelector(".couple-name").innerText;
+//        const pageCnt = document.querySelectorAll("#pdf-wrap-inner").length;
+//        const height = 1500 * pageCnt;
+
         const opt = {
-            pagebreak:  'css',
-            // margin:       [2,0,0,5],
-            filename:     'myfile2.pdf',
-            html2canvas:  { scale:1
-                            ,backgroundColor: '#afafff'
-                            },
-            jsPDF:        { unit: 'px', format: [1500, 1500], orientation: 'portrait', compressPDF: true }
+//            pagebreak:  "css"
+             filename:     fileNm + ".pdf"
+            , html2canvas:  {   scale:1
+                              ,backgroundColor: "#E5809F"
+                            }
+            , jsPDF:        {   unit: 'px'
+                                , format: [1501, 1501]
+                                , backgroundColor: "#E5809F"
+//                                , orientation: 'portrait'
+//                                , compressPDF: true
+                            }
+         , pagebreak:       {  after : '.page-wrap'
+                               }
+
         };
         html2pdf().set(opt).from(element).save();
     },
 
-//    ajaxGet(uri,method,param){
-//        let result;
-//        var xhr = new XMLHttpRequest();
-//        // Making our connection
-//        let url = "http://127.0.0.1:8080";
-//        url = url + uri + param;
-//        xhr.open(method, url, true);
-//
-//        // Sending our request
-//        xhr.send();
-//
-//        // function execute after request is successful
-//        xhr.onreadystatechange = function () {
-//            if (this.readyState == 4 && this.status == 200) {
-////                console.log(this.responseText);
-//                result = this.responseText;
-//                return result;
-//            }
-//        }
-//    },
 
-//    async testFetch(){
-//        let result;
-//        await fetch("http://127.0.0.1:8080/download/1").then(function (response) {
-//            return response.text();
-//         }).then(function (html) {
-//            var parser = new DOMParser();
-//            let pdfHtml = parser.parseFromString(html, 'text/html');
-//            console.log(pdfHtml.querySelector('body'));
-//            var pdfDoc = pdfHtml.getRootNode();
-//
-//            let div = document.createElement("div");
-//            document.querySelector('body').append(div);
-//            return pdfDoc.body;
-//
-//
-//         }).catch(function (err) {
-//            // There was an error
-//            console.warn('Something went wrong.', err);
-//         });
-//    },
 
+    ///////////////////
+    ///////////////////
+    ///////////////////
+    ///////////////////
+    ///////////////////
+    ///////////////////
+    ///////////////////
+    ///////////////////
+    ///////////////////
+    ///////////////////
+    ///////////////////
     async getPdfView(id) {
     	const response = await fetch(
-    		"http://127.0.0.1:8080/download/"+id ,
+    		"http://127.0.0.1:8080/downloadTest/"+id ,
     		{
     			method: 'GET'
     		}
@@ -176,10 +207,43 @@ const common = {
 
         getPdfView.then((itm) => {
             div.innerHTML = itm;
-            document.querySelector("#pdf-wrap").classList.remove("hidden");
+            document.querySelectorAll("#pdf-wrap-inner").forEach(itm => {
+                itm.classList.remove("hidden");
+            })
+//            document.querySelector("#pdf-wrap").classList.remove("hidden");
             common.downloadPdf("pdf-wrap");
             document.querySelector("#temp4pdf").remove();
         });
     },
 
 }
+
+Kakao.Share.createDefaultButton({
+        container: '#kakaotalk-sharing-btn',
+        objectType: 'feed',
+        content: {
+          title: document.querySelector(".couple-name").innerText + " 결혼합니다.",
+          description: "저희의 결혼을 축하해주세요!",
+          imageUrl:
+            'http://k.kakaocdn.net/dn/wl01N/btrPDrOXuW5/aMmeXzLCWPFy368MOs3kj0/kakaolink40_original.png',
+          link: {
+            mobileWebUrl: window.location.href,
+            webUrl: window.location.href,
+          },
+        },
+        buttons: [
+          {
+            title: '축하 메세지 보내기',
+            link: {
+              mobileWebUrl: window.location.href,
+              webUrl: window.location.href,
+            },
+          },
+        ],
+  });
+
+
+//  Kakao.Share.createCustomButton({
+//      container: '#kakaotalk-sharing-btn',
+//      templateId: 84778,
+//    });

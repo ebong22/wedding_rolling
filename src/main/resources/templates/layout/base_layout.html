@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="body-container" class="mx-auto w-full h-screen bg-wd-pink ">
-  <div class=" h-[95%] overflow-hidden contents-wrap" id="img-canvas">
+  <div class=" h-[95%] overflow-hidden contents-wrap"> <!--id="img-canvas">-->
     <div th:replace="${content}" >
     </div>
   </div>
@@ -18,7 +18,7 @@
   </footer>
 
 </div>
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript" src="/js/library/kakao.min.js" integrity="sha384-PFHeU/4gvSH8kpvhrigAPfZGBDPs372JceJq3jAXce11bVA6rMvGWzvP4fMQuBGL" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/js/library/html2canvas.min.js"></script>
 <script type="text/javascript" src="/js/html2pdf.bundle.js"></script>
 <script type="text/javascript" src="/js/common.js"></script>

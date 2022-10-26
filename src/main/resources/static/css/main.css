@@ -107,6 +107,14 @@
         bg-slate-100/20
     }
 
+    .field-error{
+        @apply
+        mt-3
+        text-center
+        text-wd-pink
+        bg-wd-mint
+    }
+
     .content-container{
         @apply
         mx-auto
@@ -127,14 +135,61 @@
         ;
     }
 
-    #pdf-wrap{
-            @apply
-            w-[1500px]
-            h-[1500px]
-            mx-auto
-            bg-wd-pink
-            ;
-        }
+    .info-text{
+        @apply
+        text-sm
+        text-center
+        text-slate-100/70
+    }
+
+    #check-password{
+        @apply
+        fixed
+        max-w-sm
+        w-[60%]
+        px-4
+        py-6
+        top-[30%]
+        left-[20%]
+        bg-wd-mint
+        rounded-xl
+        z-[9999]
+    }
+
+    #pw-x-btn{
+        @apply
+        absolute
+        right-2
+        top-0.5
+        text-3xl
+    }
+
+    #popup-bg{
+        @apply
+        fixed
+        inset-0
+        w-[100%]
+        h-screen
+        bg-neutral-800/30
+        z-[9990]
+    }
+
+    #pdf-wrap-inner{
+        @apply
+        w-[1500px]
+        h-[1500px]
+        mx-auto
+        bg-wd-pink
+        p-0
+        ;
+    }
+    .pdf-list-wrap{
+        @apply
+        grid
+        grid-cols-4
+        gap-x-2
+        gap-y-4
+    }
 
 /* footer */
     .footer-wrap{

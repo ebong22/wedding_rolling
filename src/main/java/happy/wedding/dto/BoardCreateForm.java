@@ -5,26 +5,23 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @ToString
-@Validated
 public class BoardCreateForm {
 
-    @NotNull
+    @NotEmpty
     private String name;
-    @NotNull
+    @NotEmpty
     private String bridge;
-    @NotNull
+    @NotEmpty
     private String groom;
-    @NotNull
+    @NotEmpty
     @NumberFormat(pattern = "######")
     private String password;
     @NotNull

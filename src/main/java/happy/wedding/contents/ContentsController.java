@@ -70,6 +70,9 @@ public class ContentsController {
             return "contents/form";
         }
         //validated가 작동을 안하는중
+        //////////////////////////
+        //////////////////////////
+        //////////////////////////
         Contents contents = makeContents(form, boardId);
         Long contentsId = contentsService.save(contents);
         return "redirect:/contents/view/" + contentsId; //view/{id}로 Redirect or contents/view로

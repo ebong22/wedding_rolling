@@ -19,6 +19,7 @@ module.exports = {
         },
         colors:{
             'wd-pink' : '#E5809F',
+            'wd-mint' : '#59BA97',
         },
     },
     sreens: {
