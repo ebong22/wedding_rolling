@@ -59,7 +59,7 @@ public class BoardController {
      */
     @GetMapping
     public String createBoardForm(Model model){
-        model.addAttribute("board", new BoardCreateForm());
+        model.addAttribute("boardCreateForm", new BoardCreateForm());
         return "board/form"; // 첫화면return
     }
 
@@ -69,7 +69,7 @@ public class BoardController {
      * @return
      */
     @PostMapping
-    public String createBoard(@Validated @ModelAttribute BoardCreateForm form, BindingResult bindingResult) throws NoSuchAlgorithmException {
+    public String createBoard(@Validated @ModelAttribute BoardCreateForm form, BindingResult bindingResult, Model model) throws NoSuchAlgorithmException {
         if(bindingResult.hasErrors()){
             log.info("erros={}", bindingResult);
             return "board/form";
@@ -100,7 +100,7 @@ public class BoardController {
      */
     private Board makeBoard(BoardCreateForm form) throws NoSuchAlgorithmException {
         Board board = new Board();
-        board.setName(form.getName());
+//        board.setName(form.getName());
         board.setBridge(form.getBridge());
         board.setGroom(form.getGroom());
         board.setWeddingDay(form.getWeddingDay());
@@ -121,14 +121,16 @@ public class BoardController {
     }
 
     // GET downloadImage/{boardId}
-    @CrossOrigin("http://localhost:8080")
+//    @CrossOrigin("http://localhost:8080")
+    @CrossOrigin("*")
     @GetMapping("download/{id}")
     public String drawPdf(@PathVariable Long id, Model model){
         model.addAttribute("contents", boardService.getContentsByBoardId(id));
         return "contents/view-pdf";
     }
 
-    @CrossOrigin("http://localhost:8080")
+//    @CrossOrigin("http://localhost:8080")
+    @CrossOrigin("*")
     @GetMapping("downloadTest/{id}")
     public String drawPdfTest(@PathVariable Long id, Model model){
         List<Contents> contentsList = boardService.getContentsByBoardId(id);

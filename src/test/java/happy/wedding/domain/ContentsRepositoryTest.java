@@ -38,7 +38,7 @@ public class ContentsRepositoryTest {
     @Rollback(false)
     public void contentsSaveAndFindOneTest(){
         Board board = new Board();
-        board.setName("test");
+//        board.setName("test");
         Long boardId = boardRepository.save(board);
 
         Contents contents = new Contents();
@@ -59,7 +59,7 @@ public class ContentsRepositoryTest {
     @Rollback(false)
     public void manyContentsTest(){
         Board board = new Board();
-        board.setName("bong");
+//        board.setName("bong");
         Long boardId = boardRepository.save(board);
 
         Contents contents1 = new Contents();

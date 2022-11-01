@@ -28,6 +28,12 @@
             <div class="btn-wrap">
                 <a th:href="@{/contents/{boardId}(boardId=${board.id})}" class="block mx-auto form-btn"> 축하메세지 작성하기 </a>
             </div>
+            <div th:if="${#lists.isEmpty(contents)}"
+                 class="relative mt-8 p-2 rounded-2xl text-center text-xl bg-wd-mint">
+                <img src="/image/icon_arrow.svg" alt="arrow icon" class="absolute animate-bounce top-[-1.7rem] left-[50%] ml-[-13.5px]"/>
+                아직 축하메세지가 없네요<br>
+                가장 먼저 축하를 전해볼까요? : )
+            </div>
             <ul class="grid grid-cols-4 gap-x-2 gap-y-6 mt-8">
                 <li th:each="list : ${contents}" class="text-center">
                     <a th:href="@{/contents/view/{id}(id=${list.id})}">
@@ -37,8 +43,8 @@
                 </li>
             </ul>
 
-            <div class="mt-20">
-                <p class="text-center text-lg">여기는 신랑, 신부님을 위한 메뉴에요!</p>
+            <div class="mt-32">
+                <p class="text-center text-xl">여기는 신랑, 신부님을 위한 메뉴에요!</p>
                 <div class="btn-wrap mt-2">
     <!--                <a href="javascript:common.passwordPopup('img')" class="block mx-auto form-btn mt-2">이미지로 다운로드</a>-->
                     <p class="info-text"> 소중한 축하메세지를 다운받아서 보관해주세요 : )</p>

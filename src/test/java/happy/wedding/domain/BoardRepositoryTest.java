@@ -25,7 +25,7 @@ class BoardRepositoryTest {
     @Rollback(false)
     void boardTest(){
         Board board = new Board();
-        board.setName("test");
+//        board.setName("test");
         Long saveId = boardrepository.save(board);
 
         Board findBoard = boardrepository.find(saveId);
