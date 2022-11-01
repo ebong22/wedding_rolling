@@ -9,17 +9,27 @@
 <body>
 <section class="">
 <!----------
-지금 여기 VALidation이 적용이 안되서 진행중
-
+지금 여기 VALidation 진행중
+@todo 하트도 정렬 맞추기
 --------->
-    <h1 class="text-center">logo</h1>
-    <div class="text-left">
-        <form action="form.html" th:action method="post" th:object="${board}">
-            <div class="form-wrap">
-                <label for="name" class="form-label">보드이름</label>
-                <input type="text" th:field="*{name}" class="form-input" placeholder="이름을 입력하세요">
-                <p class="field-error" th:errors="*{name}"> 내용 입력 오류</p>
-            </div>
+    <div class="mt-4 text-center text-2xl clear-both">
+        <span lacss="clear-both">
+        결혼을 축하받기 위한<br>
+        롤링페이퍼를 만들어 볼까요?
+        </span>
+        <span lacss="clear-both w-full mt-2">
+            <img src="/image/icon_heart_orange.svg" alt="heart icon" class="float-left w-10"/>
+            <img src="/image/icon_heart_yellow.svg" alt="heart icon" class="float-left w-10"/>
+            <img src="/image/icon_heart_red.svg" alt="heart icon" class="float-left w-10" />
+        </span>
+    </div>
+    <div class="text-left mt-8">
+        <form action="form.html" th:action method="post" th:object="${boardCreateForm}">
+<!--            <div class="form-wrap">-->
+<!--                <label for="name" class="form-label">보드이름</label>-->
+<!--                <input type="text" th:field="*{name}" class="form-input" placeholder="이름을 입력하세요">-->
+<!--                <p class="field-error" th:errors="*{name}"> 내용 입력 오류</p>-->
+<!--            </div>-->
             <div class="form-wrap">
                 <label for="bridge" class="form-label">신부님의 이름은 무엇인가요?</label>
                 <input type="text" th:field="*{bridge}" class="form-input" placeholder="이름을 입력하세요">

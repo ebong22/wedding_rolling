@@ -645,11 +645,15 @@ section{
 
 .field-error{
   margin-top: 0.75rem;
+  border-radius: 0.5rem;
   --tw-bg-opacity: 1;
   background-color: rgb(89 186 151 / var(--tw-bg-opacity));
+  padding-top: 4px;
+  padding-bottom: 4px;
   text-align: center;
-  --tw-text-opacity: 1;
-  color: rgb(229 128 159 / var(--tw-text-opacity));
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgb(241 245 249 / 0.8);
 }
 
 .content-view-textBox{
@@ -768,6 +772,14 @@ section{
   position: sticky;
 }
 
+.top-\[-1\.7rem\]{
+  top: -1.7rem;
+}
+
+.left-\[50\%\]{
+  left: 50%;
+}
+
 .float-left{
   float: left;
 }
@@ -797,6 +809,18 @@ section{
   margin-top: 1rem;
 }
 
+.ml-\[-13\.5px\]{
+  margin-left: -13.5px;
+}
+
+.mt-32{
+  margin-top: 8rem;
+}
+
+.mt-1{
+  margin-top: 0.25rem;
+}
+
 .mt-3{
   margin-top: 0.75rem;
 }
@@ -819,22 +843,6 @@ section{
 
 .ml-2{
   margin-left: 0.5rem;
-}
-
-.mt-1{
-  margin-top: 0.25rem;
-}
-
-.mt-16{
-  margin-top: 4rem;
-}
-
-.mt-14{
-  margin-top: 3.5rem;
-}
-
-.mt-20{
-  margin-top: 5rem;
 }
 
 .block{
@@ -969,6 +977,10 @@ section{
   width: 100%;
 }
 
+.w-10{
+  width: 2.5rem;
+}
+
 .max-w-\[65px\]{
   max-width: 65px;
 }
@@ -984,6 +996,22 @@ section{
 
 .\!transform{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)) !important;
+}
+
+@keyframes bounce{
+  0%, 100%{
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50%{
+    transform: none;
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+.animate-bounce{
+  animation: bounce 1s infinite;
 }
 
 .resize{
@@ -1029,6 +1057,10 @@ section{
   word-break: break-all;
 }
 
+.rounded-2xl{
+  border-radius: 1rem;
+}
+
 .rounded-lg{
   border-radius: 0.5rem;
 }
@@ -1040,6 +1072,15 @@ section{
 .bg-wd-pink{
   --tw-bg-opacity: 1;
   background-color: rgb(229 128 159 / var(--tw-bg-opacity));
+}
+
+.bg-wd-mint{
+  --tw-bg-opacity: 1;
+  background-color: rgb(89 186 151 / var(--tw-bg-opacity));
+}
+
+.p-2{
+  padding: 0.5rem;
 }
 
 .py-3{
@@ -1177,4 +1218,11 @@ section{
 
 .focus\:bg-slate-100\/10:focus{
   background-color: rgb(241 245 249 / 0.1);
+}
+
+@media (min-width: 640px){
+  .sm\:text-xl{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }

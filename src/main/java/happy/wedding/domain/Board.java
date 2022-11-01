@@ -17,7 +17,7 @@ public class Board {
     @GeneratedValue
     private Long id;
 
-    private String name;
+//    private String name;
 
     private String password; // 비밀번호 - 다운로드 기능 사용 시 인증용
 

@@ -110,9 +110,13 @@
     .field-error{
         @apply
         mt-3
+        py-[4px]
+        text-sm
         text-center
-        text-wd-pink
+        /*text-wd-pink*/
+        text-slate-100/80
         bg-wd-mint
+        rounded-lg
     }
 
     .content-container{
