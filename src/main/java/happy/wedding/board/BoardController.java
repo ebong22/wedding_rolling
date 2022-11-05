@@ -80,19 +80,6 @@ public class BoardController {
         return "redirect:/view/" + boardId; // /view/{id}로 Redirect
     }
 
-//    @PostMapping
-//    public String createBoard2(@Validated @ModelAttribute BoardCreateForm board, BindingResult bindingResult){
-//
-//        if(bindingResult.hasErrors()){
-//            log.info("erros={}", bindingResult);
-//            return "board/form";
-//        }
-//
-//        Board realBoard = makeBoard(board);
-//        Long boardId = boardService.createBoard(realBoard);
-//        return "redirect:/view/" + boardId; // /view/{id}로 Redirect
-//    }
-
     /**
      * boardForm으로 board 생성
      * @param form
@@ -111,9 +98,9 @@ public class BoardController {
         // 비밀번호 암호화
         String salt = encrypt.makeSalt();
         String encodingPw = encrypt.encodingPassword(form.getPassword() + salt);
-        log.info("salt={}",salt);
-        log.info("form.getPassword()={}",form.getPassword());
-        log.info("encodingPw={}",encodingPw);
+//        log.info("salt={}",salt);
+//        log.info("form.getPassword()={}",form.getPassword());
+//        log.info("encodingPw={}",encodingPw);
         board.setPassword(encodingPw);
         board.setSalt(salt);
 
@@ -130,7 +117,7 @@ public class BoardController {
     }
 
 //    @CrossOrigin("http://localhost:8080")
-    @CrossOrigin("*")
+//    @CrossOrigin("*")
     @GetMapping("downloadTest/{id}")
     public String drawPdfTest(@PathVariable Long id, Model model){
         List<Contents> contentsList = boardService.getContentsByBoardId(id);
@@ -161,26 +148,23 @@ public class BoardController {
         return result;
     }
 
-    ////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////
-    @CrossOrigin("http://localhost:8080")
+//    @CrossOrigin("http://localhost:8080")
     @PostMapping("check/{id}")
     @ResponseBody
     public Boolean checkPassword(@PathVariable Long id, @RequestBody String password) throws NoSuchAlgorithmException {
         Board board = boardService.findById(id);
         //비밀번호 작동 확인
-        log.info("pw={}", password);
-        log.info("dbpw={}", board.getPassword());
-        log.info("dbsalt={}", board.getSalt());
-        log.info("pw+salt={}", password + board.getSalt());
-        log.info("encoding={}", encrypt.encodingPassword(password + board.getSalt()));
+//        log.info("pw={}", password);
+//        log.info("dbpw={}", board.getPassword());
+//        log.info("dbsalt={}", board.getSalt());
+//        log.info("pw+salt={}", password + board.getSalt());
+//        log.info("encoding={}", encrypt.encodingPassword(password + board.getSalt()));
         return board.getPassword().equals( encrypt.encodingPassword(password + board.getSalt()) );
     }
+
+
+
+
 
     // GET downloadFile/{boardId}ㄴ
 

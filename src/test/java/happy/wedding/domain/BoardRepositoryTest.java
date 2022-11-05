@@ -29,7 +29,7 @@ class BoardRepositoryTest {
         Long saveId = boardrepository.save(board);
 
         Board findBoard = boardrepository.find(saveId);
-        log.info("findBoard ={}", findBoard.getId());
+//        log.info("findBoard ={}", findBoard.getId());
 
         assertThat(findBoard.getId()).isEqualTo(board.getId());
         assertThat(findBoard).isEqualTo(board);

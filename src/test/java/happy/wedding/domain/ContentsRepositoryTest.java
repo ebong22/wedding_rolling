@@ -71,7 +71,7 @@ public class ContentsRepositoryTest {
         contentsRepository.save(contents2);
 
         List<Contents> contentsList = contentsRepository.findByBoardId(boardId);
-        log.info("contentsList = {}", contentsList);
+//        log.info("contentsList = {}", contentsList);
         assertThat(contentsList).contains(contents1);
         assertThat(contentsList).contains(contents2);
     }

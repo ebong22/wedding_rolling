@@ -28,12 +28,12 @@ class EncryptTest {
 
         String pwAndSalt = pw + salt;
 
-        log.info("PW={}", pw);
-        log.info("SALT={}", salt);
+//        log.info("PW={}", pw);
+//        log.info("SALT={}", salt);
 
         // 평문+salt 암호화
         hex = encodingPassword(pw+salt);
-        log.info("평문 + salt의 해시 값 = {}", hex);
+//        log.info("평문 + salt의 해시 값 = {}", hex);
 
         assertThat(hex).isEqualTo(encodingPassword(pw+salt));
 
