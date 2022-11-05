@@ -3,13 +3,6 @@ spring:
     encoding: UTF-8
     basename: messages,error
 
-##  h2
-#  datasource:
-#    url: jdbc:h2:tcp://localhost/~/test
-#    username: sa
-#    password:
-#    driver-class-name: org.h2.Driver
-
   jpa:
     hibernate:
       ddl-auto: update
@@ -20,3 +13,16 @@ spring:
 
 logging.level:
   org.hibernate.SQL: debug
+
+
+
+---
+spring:
+  profiles:
+    active: prod
+
+---
+spring:
+  profiles:
+    active: dev
+

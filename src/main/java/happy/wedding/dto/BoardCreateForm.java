@@ -3,6 +3,7 @@ package happy.wedding.dto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
@@ -31,11 +32,11 @@ public class BoardCreateForm {
     private String groom;
 
     @NotEmpty
-    @NumberFormat(pattern = "######")
+    @Length(min = 6, max = 6)
     private String password;
 
     @NotNull
     @FutureOrPresent
-    @DateTimeFormat(pattern = "yyyy.MM.dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate weddingDay;
 }
