@@ -1,7 +1,7 @@
 spring:
   datasource: #mysql
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://3.35.37.120:3306/rolling_paper?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://43.201.65.131:3306/rolling_paper?serverTimezone=Asia/Seoul
     username: bong
     password: bong2834
 
