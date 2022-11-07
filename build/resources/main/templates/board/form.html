@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html th:replace="~{/layout/base_layout :: layout(~{::title}, ~{::section})}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>축하해</title>
+</head>
+
+
+<body>
+<section class="">
+<!----------
+지금 여기 VALidation 진행중
+@todo 하트도 정렬 맞추기
+--------->
+    <div class="mt-4 text-center text-2xl clear-both">
+        <span lacss="clear-both">
+        결혼을 축하받기 위한<br>
+        롤링페이퍼를 만들어 볼까요?
+        </span>
+<!--        <span lacss="clear-both w-full mt-2">-->
+<!--            <img src="/image/icon_heart_orange.svg" alt="heart icon" class="float-left w-10"/>-->
+<!--            <img src="/image/icon_heart_yellow.svg" alt="heart icon" class="float-left w-10"/>-->
+<!--            <img src="/image/icon_heart_red.svg" alt="heart icon" class="float-left w-10" />-->
+<!--        </span>-->
+    </div>
+    <div class="text-left mt-8">
+        <form action="form.html" th:action method="post" th:object="${boardCreateForm}">
+<!--            <div class="form-wrap">-->
+<!--                <label for="name" class="form-label">보드이름</label>-->
+<!--                <input type="text" th:field="*{name}" class="form-input" placeholder="이름을 입력하세요">-->
+<!--                <p class="field-error" th:errors="*{name}"> 내용 입력 오류</p>-->
+<!--            </div>-->
+            <div class="form-wrap">
+                <label for="bridge" class="form-label">신부님의 이름은 무엇인가요?</label>
+                <input type="text" th:field="*{bridge}" class="form-input" placeholder="이름을 입력하세요">
+                <p class="field-error" th:errors="*{bridge}"> 내용 입력 오류</p>
+            </div>
+            <div class="form-wrap">
+                <label for="groom" class="form-label">신랑님의 이름도 알려주세요!</label>
+                <input type="text" th:field="*{groom}" class="form-input" placeholder="이름을 입력하세요">
+                <p class="field-error" th:errors="*{groom}"> 내용 입력 오류</p>
+            </div>
+            <div class="form-wrap">
+                <label for="weddingDay" class="form-label">결혼 날짜는 언제인가요?</label>
+                <input type="date" th:field="*{weddingDay}" class="form-input" placeholder="숫자 6자리"
+                       minlength="6" maxlength="6" onInput="this.value=this.value.replace(/[^-0-9]/g,'');">
+                <p class="field-error" th:errors="*{weddingDay}"> 내용 입력 오류</p>
+            </div>
+            <div class="form-wrap">
+                <label for="password" class="form-label">
+                    글 확인시에 사용할<br>
+                    비밀번호를 지정해 주세요 :)
+                </label>
+                <input type="text" th:field="*{password}" class="form-input" placeholder="숫자 6자리"
+                       minlength="6" maxlength="6" onInput="this.value=this.value.replace(/[^-0-9]/g,'');">
+                <p class="field-error" th:errors="*{password}"> 내용 입력 오류</p>
+            </div>
+
+            <div class="mt-8">
+                <div class="form-btn">
+                    <button class="" type="submit">축하 메세지를 받아보세요</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>
+</body>
+</html>

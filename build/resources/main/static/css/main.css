@@ -1,0 +1,216 @@
+/*pretendard*/
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.5/dist/web/static/pretendard.css");
+/*마포꽃섬*/
+/*@import url('https://webfontworld.github.io/mapo/MapoFlowerIsland.css');*/
+/*에스코어드림*/
+@import url('https://webfontworld.github.io/score/SCoreDream.css');
+/*다이어리체*/
+@import url('https://webfontworld.github.io/earlyfont/EF_Diary.css');
+/*고운밤체*/
+@import url('https://webfontworld.github.io/Cafe24Oneprettynight/Cafe24Oneprettynight.css');
+/*강원교육모두체*/
+@import url('https://webfontworld.github.io/gangwon/GangwonEduAll.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base{
+    html{
+        @apply
+       text-slate-100
+       /*font-pretendard*/
+       font-GangwonEduAll
+       font-light
+       tracking-tight
+       ;
+    }
+    input, textarea{
+        @apply
+        focus:outline-none
+    }
+
+    section{
+        @apply
+        h-full
+        py-5
+        px-10
+        overflow-scroll
+    }
+}
+
+@layer components {
+/* contents */
+    .contents-wrap{
+        @apply
+        max-w-sm
+        mx-auto
+        bg-wd-pink
+        ;
+    }
+
+    .form-wrap{
+        @apply
+        mt-8
+        ;
+    }
+    .form-input{
+        @apply
+        mt-2
+        w-full
+        px-2
+        bg-transparent
+        border-b
+        border-slate-100/70
+        placeholder:text-slate-100/40
+        focus:border-yellow-300
+        ;
+    }
+
+    .form-label {
+        @apply
+        block
+        text-xl
+        text-slate-100/80
+        font-light
+        leading-6
+        ;
+    }
+
+    .form-btn{
+        @apply
+        py-1
+        border
+        rounded-lg
+        border-slate-100/90
+        text-center
+        text-lg
+        ;
+    }
+
+    .icon-radio{
+        @apply
+        appearance-none
+        w-3
+        h-3
+        rounded-full
+        border
+        border-slate-100/90
+        checked:bg-slate-100/50
+    }
+
+    .icon-imageBox{
+        @apply
+        rounded-full
+        bg-slate-100/20
+    }
+
+    .field-error{
+        @apply
+        mt-3
+        py-[4px]
+        text-sm
+        text-center
+        /*text-wd-pink*/
+        text-slate-100/80
+        bg-wd-mint
+        rounded-lg
+    }
+
+    .content-container{
+        @apply
+        mx-auto
+        align-middle
+        ;
+    }
+
+   .content-view-textBox{
+        @apply
+        mt-1
+        w-full
+        p-2
+        bg-transparent
+        border
+        rounded-lg
+        border-slate-100/70
+        text-lg
+        ;
+    }
+
+    .info-text{
+        @apply
+        text-sm
+        text-center
+        text-slate-100/70
+    }
+
+    #check-password{
+        @apply
+        fixed
+        max-w-sm
+        w-[60%]
+        px-4
+        py-6
+        top-[30%]
+        left-[20%]
+        bg-wd-mint
+        rounded-xl
+        z-[9999]
+    }
+
+    #pw-x-btn{
+        @apply
+        absolute
+        right-2
+        top-0.5
+        text-3xl
+    }
+
+    #popup-bg{
+        @apply
+        fixed
+        inset-0
+        w-[100%]
+        h-screen
+        bg-neutral-800/30
+        z-[9990]
+    }
+
+    #pdf-wrap-inner{
+        @apply
+        w-[1500px]
+        h-[1500px]
+        mx-auto
+        bg-wd-pink
+        p-0
+        ;
+    }
+    .pdf-list-wrap{
+        @apply
+        grid
+        grid-cols-4
+        gap-x-2
+        gap-y-4
+    }
+
+/* footer */
+    .footer-wrap{
+        @apply
+        fixed
+        w-full
+        h-[5%]
+        bottom-0
+        bg-[#E57396]
+        text-center
+        text-sm
+        text-white/50
+        leading-8
+        ;
+    }
+
+
+
+
+}

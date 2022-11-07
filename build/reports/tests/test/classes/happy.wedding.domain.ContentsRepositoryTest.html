@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - ContentsRepositoryTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>ContentsRepositoryTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/happy.wedding.domain.html">happy.wedding.domain</a> &gt; ContentsRepositoryTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.068s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">contentsSaveAndFindOneTest</td>
+<td class="success">0.014s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">manyContentsTest</td>
+<td class="success">0.054s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2022-11-06 08:27:38.238  INFO 1935 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@8bd9d08 testClass = ContentsRepositoryTest, testInstance = happy.wedding.domain.ContentsRepositoryTest@189f3ccd, testMethod = contentsSaveAndFindOneTest@ContentsRepositoryTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@2eb0932c testClass = ContentsRepositoryTest, locations = '{}', classes = '{class happy.wedding.WeddingApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6bc407fd, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@54504ecd, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6239aba6, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@7164ca4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7a67e3c6, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@548e6d58], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -&gt; false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@71806c64]; rollback [false]
+2022-11-06 08:27:38.239 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : select next_val as id_val from hibernate_sequence for update
+2022-11-06 08:27:38.240 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : update hibernate_sequence set next_val= ? where next_val=?
+2022-11-06 08:27:38.243 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : select next_val as id_val from hibernate_sequence for update
+2022-11-06 08:27:38.244 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : update hibernate_sequence set next_val= ? where next_val=?
+2022-11-06 08:27:38.247 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : insert into board (bridge, create_date, groom, password, salt, wedding_day, id) values (?, ?, ?, ?, ?, ?, ?)
+2022-11-06 08:27:38.248 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : insert into contents (board_id, contents, create_date, list_icon, name, id) values (?, ?, ?, ?, ?, ?)
+2022-11-06 08:27:38.251  INFO 1935 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Committed transaction for test: [DefaultTestContext@8bd9d08 testClass = ContentsRepositoryTest, testInstance = happy.wedding.domain.ContentsRepositoryTest@189f3ccd, testMethod = contentsSaveAndFindOneTest@ContentsRepositoryTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@2eb0932c testClass = ContentsRepositoryTest, locations = '{}', classes = '{class happy.wedding.WeddingApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6bc407fd, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@54504ecd, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6239aba6, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@7164ca4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7a67e3c6, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@548e6d58], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -&gt; false]]
+2022-11-06 08:27:38.254  INFO 1935 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@8bd9d08 testClass = ContentsRepositoryTest, testInstance = happy.wedding.domain.ContentsRepositoryTest@74130456, testMethod = manyContentsTest@ContentsRepositoryTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@2eb0932c testClass = ContentsRepositoryTest, locations = '{}', classes = '{class happy.wedding.WeddingApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6bc407fd, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@54504ecd, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6239aba6, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@7164ca4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7a67e3c6, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@548e6d58], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -&gt; false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@71806c64]; rollback [false]
+2022-11-06 08:27:38.255 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : select next_val as id_val from hibernate_sequence for update
+2022-11-06 08:27:38.256 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : update hibernate_sequence set next_val= ? where next_val=?
+2022-11-06 08:27:38.257 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : select next_val as id_val from hibernate_sequence for update
+2022-11-06 08:27:38.258 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : update hibernate_sequence set next_val= ? where next_val=?
+2022-11-06 08:27:38.259 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : select next_val as id_val from hibernate_sequence for update
+2022-11-06 08:27:38.260 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : update hibernate_sequence set next_val= ? where next_val=?
+2022-11-06 08:27:38.296 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : insert into board (bridge, create_date, groom, password, salt, wedding_day, id) values (?, ?, ?, ?, ?, ?, ?)
+2022-11-06 08:27:38.297 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : insert into contents (board_id, contents, create_date, list_icon, name, id) values (?, ?, ?, ?, ?, ?)
+2022-11-06 08:27:38.298 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : insert into contents (board_id, contents, create_date, list_icon, name, id) values (?, ?, ?, ?, ?, ?)
+2022-11-06 08:27:38.299 DEBUG 1935 --- [    Test worker] org.hibernate.SQL                        : select contents0_.id as id1_1_, contents0_.board_id as board_id6_1_, contents0_.contents as contents2_1_, contents0_.create_date as create_d3_1_, contents0_.list_icon as list_ico4_1_, contents0_.name as name5_1_ from contents contents0_ where contents0_.board_id=?
+2022-11-06 08:27:38.306  INFO 1935 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Committed transaction for test: [DefaultTestContext@8bd9d08 testClass = ContentsRepositoryTest, testInstance = happy.wedding.domain.ContentsRepositoryTest@74130456, testMethod = manyContentsTest@ContentsRepositoryTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@2eb0932c testClass = ContentsRepositoryTest, locations = '{}', classes = '{class happy.wedding.WeddingApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@6bc407fd, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@54504ecd, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6239aba6, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@7164ca4c, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@7a67e3c6, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@548e6d58], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder' -&gt; true, 'org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder' -&gt; true, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -&gt; false]]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.5</a> at 2022. 11. 6. 오전 8:27:38</p>
+</div>
+</div>
+</body>
+</html>
