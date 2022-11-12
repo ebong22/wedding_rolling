@@ -27,6 +27,7 @@ logging.level:
 
 
 
+
 ---
 spring:
   profiles:
