@@ -1,14 +1,15 @@
 spring:
   datasource: #mysql
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://43.201.65.131:3306/rolling_paper?serverTimezone=Asia/Seoul
-    username: bong
-    password: bong2834
+    url: jdbc:mysql://43.201.65.131:3306/rolling_paper?serverTimezone=Asia/Seoul&autoReconnect=true
+    username: bongbong
+    password: bongbong2834
 
 
   jpa:
     hibernate:
       ddl-auto: validate
+      generate-ddl: true
       properties:
         hibernate:
           show_sql: true
