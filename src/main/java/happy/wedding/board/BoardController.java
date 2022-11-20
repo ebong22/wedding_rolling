@@ -107,18 +107,10 @@ public class BoardController {
         return board;
     }
 
-    // GET downloadImage/{boardId}
-//    @CrossOrigin("http://localhost:8080")
-    @CrossOrigin("*")
-    @GetMapping("download/{id}")
-    public String drawPdf(@PathVariable Long id, Model model){
-        model.addAttribute("contents", boardService.getContentsByBoardId(id));
-        return "contents/view-pdf";
-    }
 
-//    @CrossOrigin("http://localhost:8080")
+    @CrossOrigin("http://43.201.65.131")
 //    @CrossOrigin("*")
-    @GetMapping("downloadTest/{id}")
+    @GetMapping("download/{id}")
     public String drawPdfTest(@PathVariable Long id, Model model){
         List<Contents> contentsList = boardService.getContentsByBoardId(id);
 
@@ -148,7 +140,7 @@ public class BoardController {
         return result;
     }
 
-//    @CrossOrigin("http://localhost:8080")
+    @CrossOrigin("http://43.201.65.131")
     @PostMapping("check/{id}")
     @ResponseBody
     public Boolean checkPassword(@PathVariable Long id, @RequestBody String password) throws NoSuchAlgorithmException {

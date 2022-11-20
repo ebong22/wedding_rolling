@@ -1,4 +1,7 @@
 
+/**
+@todo key 숨기기
+*/
 Kakao.init('671dc964346c250e54c044f820ce5a53');
 
 const common = {
@@ -28,23 +31,6 @@ const common = {
        });
     },
 
-    passwordPopup(downloadType){
-            let popWrap = document.querySelector("#check-password");
-            popWrap.classList.remove("hidden");
-            document.querySelector("#password-pop-btn").dataset.type=downloadType;
-            let popupBg = document.createElement("div");
-            popupBg.id = "popup-bg";
-            document.querySelector("body").appendChild(popupBg);
-
-            // 배경 클릭 시 팝업 닫기
-            popupBg.addEventListener("click",function(){
-                common.popupClose(popupBg, popWrap);
-            });
-            // 닫기 버튼 클릭 시
-            document.querySelector("#pw-x-btn").addEventListener("click",function(){
-               common.popupClose(popupBg, popWrap);
-           });
-        },
     /**
         비밀번호 확인 팝업 닫기
     */
@@ -66,7 +52,7 @@ const common = {
 
         const pwInput = document.querySelector("#password-input");
         if(pwInput.value != null && pwInput !=""){
-            fetch("http://127.0.0.1:8080/check/"+ pwInput.dataset.boardId, {
+            fetch(window.location.origin + "/check/" + pwInput.dataset.boardId, {
                       method: "POST",
                       headers: {
                         "Content-Type": "application/json",
@@ -174,22 +160,9 @@ const common = {
         html2pdf().set(opt).from(element).save();
     },
 
-
-
-    ///////////////////
-    ///////////////////
-    ///////////////////
-    ///////////////////
-    ///////////////////
-    ///////////////////
-    ///////////////////
-    ///////////////////
-    ///////////////////
-    ///////////////////
-    ///////////////////
     async getPdfView(id) {
     	const response = await fetch(
-    		"http://127.0.0.1:8080/downloadTest/"+id ,
+    		window.location.origin + "/download/" + id ,
     		{
     			method: 'GET'
     		}
@@ -200,6 +173,7 @@ const common = {
      downloadPdfBtn(){
         const boardId = document.querySelector("#pdf-btn").dataset.boardId;
         let getPdfView = common.getPdfView(boardId);
+        console.log(getPdfView);
 
         let div = document.createElement("div");
         div.id = "temp4pdf";

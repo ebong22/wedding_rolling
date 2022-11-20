@@ -15,6 +15,32 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    background-color: #E5809F;
+}
+
+section{
+    overflow-x: hidden;
+}
+
+section::-webkit-scrollbar {
+    width: 5px;
+    background-color: #E5809F;
+    overflow-x:hidden
+}
+
+section::-webkit-scrollbar-thumb {
+    background-color:   rgb(229 115 150);
+    border-radius:      2px;
+}
+
+section::-webkit-scrollbar-track {
+    display:none;
+}
+
+section::-webkit-scrollbar-button {
+    display:none;
+}
 
 
 @layer base{
@@ -38,6 +64,7 @@
         py-5
         px-10
         overflow-scroll
+        bg-wd-pink
     }
 }
 
