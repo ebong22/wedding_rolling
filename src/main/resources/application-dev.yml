@@ -1,10 +1,9 @@
 spring:
   datasource: #mysql
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/rolling_paper?serverTimezone=Asia/Seoul
-    username: bong
-    password: bong2834
-#@todo key 숨기기 url 숨기기
+    url:
+    username:
+    password:
 
   jpa:
     hibernate:
