@@ -108,7 +108,7 @@ public class BoardController {
     }
 
 
-    @CrossOrigin("http://43.201.65.131")
+
 //    @CrossOrigin("*")
     @GetMapping("download/{id}")
     public String drawPdfTest(@PathVariable Long id, Model model){
@@ -140,7 +140,7 @@ public class BoardController {
         return result;
     }
 
-    @CrossOrigin("http://43.201.65.131")
+
     @PostMapping("check/{id}")
     @ResponseBody
     public Boolean checkPassword(@PathVariable Long id, @RequestBody String password) throws NoSuchAlgorithmException {

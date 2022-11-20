@@ -1,9 +1,11 @@
 spring:
+  profiles:
+    include: key
   datasource: #mysql
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://43.201.65.131:3306/rolling_paper?serverTimezone=Asia/Seoul&autoReconnect=true
-    username: bongbong
-    password: bongbong2834
+    url:
+    username:
+    password:
 
 
   jpa:
@@ -19,5 +21,5 @@ logging.level:
   org.hibernate.SQL: info
 
 server:
-  address: 172.31.44.35
+  address:
 #  port: 80
