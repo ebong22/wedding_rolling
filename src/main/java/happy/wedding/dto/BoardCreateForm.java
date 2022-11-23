@@ -17,11 +17,6 @@ import java.time.LocalDate;
 @ToString
 public class BoardCreateForm {
 
-
-    /**
-     * @// TODO: 2022/10/30 validation 진행중 
-     */
-
 //    @NotEmpty
 //    private String name;
 

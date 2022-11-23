@@ -11,6 +11,7 @@ public class BoardRepository {
     @PersistenceContext
     EntityManager em;
 
+
     /**
      * 게시판 저장(생성)
      * @param board
