@@ -18,15 +18,15 @@ public class Contents {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="board_id")
-    private Board board;
+    private Board board;    // 게시판
 
-    private String name;
+    private String name;    // 게시물 이름
 
     @Lob
-    private String contents;
+    private String contents;    // 게시물 내용
 
     @Enumerated(EnumType.STRING)
-    private ListIcon listIcon;
+    private ListIcon listIcon;  // 리스트 아이콘(꽃, 하트)
 
     @Embedded
     private EntityInfo entityInfo;

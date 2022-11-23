@@ -6,11 +6,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
 @Service
 @Transactional
 @RequiredArgsConstructor
 public class ContentsService {
+
     private final ContentsRepository contentsRepository;
 
     /**
@@ -21,6 +21,7 @@ public class ContentsService {
     public Contents getContents(Long id) {
         return contentsRepository.find(id);
     }
+
 
     /**
      * 게시글 저장

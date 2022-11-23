@@ -9,11 +9,9 @@ import java.util.List;
 @Repository
 public class ContentsRepository {
 
-
-    // findByBoardId - return TList<Contents>
-
     @PersistenceContext
     EntityManager em;
+
 
     /**
      * 게시글 저장
@@ -25,6 +23,7 @@ public class ContentsRepository {
         return contents.getId();
     }
 
+
     /**
      * 게시글 id로 조회
      * @param id
@@ -33,6 +32,7 @@ public class ContentsRepository {
     public Contents find (Long id){
         return em.find(Contents.class, id);
     }
+
 
     /**
      * 특정 게시판에 해당하는 게시물 모두 조회
@@ -44,4 +44,5 @@ public class ContentsRepository {
                 .setParameter("boardId", boardId)
                 .getResultList();
     }
+    
 }

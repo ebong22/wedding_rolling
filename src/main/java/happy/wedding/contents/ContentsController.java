@@ -24,8 +24,8 @@ import java.util.Map;
 public class ContentsController {
 
     private final ContentsService contentsService;
-
     private final BoardService boardService;
+
 
     /**
      * 게시글 상세보기
@@ -39,11 +39,13 @@ public class ContentsController {
         return "contents/view";
     }
 
-    @GetMapping("/view/pdf/{boardId}")
-    public String viewPdf(@PathVariable Long boardId, Model model){
-        model.addAttribute("contents", boardService.getContentsByBoardId(boardId));
-        return "contents/view-pdf";
-    }
+
+//    @GetMapping("/view/pdf/{boardId}")
+//    public String viewPdf(@PathVariable Long boardId, Model model){
+//        model.addAttribute("contents", boardService.getContentsByBoardId(boardId));
+//        return "contents/view-pdf";
+//    }
+
 
     /**
      * 게시글 작성 form
@@ -55,6 +57,7 @@ public class ContentsController {
         model.addAttribute("listIcon", ListIcon.values());
         return "contents/form";
     }
+
 
     /**
      * 게시글 저장
@@ -69,10 +72,12 @@ public class ContentsController {
             model.addAttribute("selectedIcon", form.getListIcon());
             return "contents/form";
         }
+
         Contents contents = makeContents(form, boardId);
         Long contentsId = contentsService.save(contents);
-        return "redirect:/contents/view/" + contentsId; //view/{id}로 Redirect or contents/view로
+        return "redirect:/contents/view/" + contentsId; // view/{id}로 Redirect or contents/view로
     }
+
 
     /**
      * form to Contents
@@ -87,8 +92,8 @@ public class ContentsController {
         contents.setListIcon(form.getListIcon());
         contents.setBoard(boardService.findById(boardId));
         contents.setEntityInfo(new EntityInfo());
+
         return contents;
     }
-
 
 }
