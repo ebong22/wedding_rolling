@@ -19,6 +19,13 @@ const common = {
         document.querySelector("#password-pop-btn").dataset.type=downloadType;
         let popupBg = document.createElement("div");
         popupBg.id = "popup-bg";
+
+        if(downloadType == "kakao"){
+            document.querySelector("#password-pop-btn").innerText = "공유하기";
+        }
+        else if(downloadType == 'pdf'){
+            document.querySelector("#password-pop-btn").innerText = "다운로드";
+        }
         document.querySelector("body").appendChild(popupBg);
 
         // 배경 클릭 시 팝업 닫기

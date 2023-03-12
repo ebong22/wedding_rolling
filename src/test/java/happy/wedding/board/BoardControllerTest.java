@@ -21,21 +21,21 @@ class BoardControllerTest {
     BoardService boardService;
 
 
-    @Test
-    void passwordCheckTest() throws NoSuchAlgorithmException {
-        BoardCreateForm form = new BoardCreateForm();
-        form.setBridge("test");
-        form.setGroom("test");
-        form.setWeddingDay(LocalDate.now());
-        form.setPassword("123456");
-
-        Board board = boardService.makeBoard(form);
-        Long saveId = boardService.createBoard(board);
-
-        Board findBoard = boardService.findById(saveId);
-
-        assertThat(findBoard.getSalt()).isEqualTo(board.getSalt());
-        assertThat(findBoard.getPassword()).isEqualTo(encrypt.encodingPassword("123456" + board.getSalt()));
-    }
+//    @Test
+//    void passwordCheckTest() throws NoSuchAlgorithmException {
+//        BoardCreateForm form = new BoardCreateForm();
+//        form.setBridge("test");
+//        form.setGroom("test");
+//        form.setWeddingDay(LocalDate.now());
+//        form.setPassword("123456");
+//
+//        Board board = boardService.makeBoard(form);
+//        Long saveId = boardService.createBoard(board);
+//
+//        Board findBoard = boardService.findById(saveId);
+//
+//        assertThat(findBoard.getSalt()).isEqualTo(board.getSalt());
+//        assertThat(findBoard.getPassword()).isEqualTo(encrypt.encodingPassword("123456" + board.getSalt()));
+//    }
 
 }

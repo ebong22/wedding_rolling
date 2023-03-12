@@ -106,7 +106,7 @@ public class BoardService {
             contentsTemp.add(contentsList.get(i));
 
             // 마지막 게시물 일 때
-            if( i % 16 != 0 && i == contentsList.size() - 1 ){
+            if( ( i % 16 != 0 && i == contentsList.size() - 1 ) || contentsList.size() == 1){
                 contents.add(copyContents(contentsTemp));
             }
         }
