@@ -98,15 +98,15 @@ public class BoardService {
         List<List<Contents>> contents = new ArrayList<>();
         List<Contents> contentsTemp = new ArrayList<>();
 
-        for(int i = 0; i < contentsList.size(); i++ ) {
-            if( i != 0 && i % 16 == 0 ){
+        for (int i = 1; i <= contentsList.size(); i++ ) {
+            contentsTemp.add(contentsList.get(i - 1));
+
+            if (i % 16 == 0){
                 contents.add(copyContents(contentsTemp));
                 contentsTemp.clear();
             }
-            contentsTemp.add(contentsList.get(i));
-
             // 마지막 게시물 일 때
-            if( ( i % 16 != 0 && i == contentsList.size() - 1 ) || contentsList.size() == 1){
+            if (( i % 16 != 0 && i == contentsList.size() ) || contentsList.size() == 1){
                 contents.add(copyContents(contentsTemp));
             }
         }
